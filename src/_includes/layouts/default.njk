@@ -30,7 +30,7 @@
     {% if katex == true %}
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css">
       <script defer src="/static/js/katex.min.js"></script>
-      <script defer src="/static/js/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+      <script defer src="/static/js/auto-render.min.js" crossorigin="anonymous"></script>
     {% endif %}
 
   </head>
@@ -64,6 +64,19 @@
     {% if prism == true %}
       <script src="/static/js/prism-line-numbers.min.js"></script>
       <script defer src="/static/js/prism.js"></script>
+    {% endif %}
+
+    {% if katex == true %}
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          renderMathInElement(document.body,{delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false},
+              {left: "\\(", right: "\\)", display: false},
+              {left: "\\[", right: "\\]", display: true}
+          ]});
+        });
+      </script>
     {% endif %}
 
     {% if path == "/" %}

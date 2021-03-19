@@ -201,7 +201,7 @@ collections:
       Delete an author will NOT remove this author in posts' md files.
     create: true
     slug: "{{fields.slug}}"
-    summary: "{{name}} ({{fields.slug}}) - {{website}}"
+    summary: "{{name}} ({{fields.slug}}) - {{more.website}}"
     editor:
       preview: false
     fields:

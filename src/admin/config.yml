@@ -12,7 +12,7 @@ backend:
 
 
 # local backend, run "npx netlify-cms-proxy-server"
-# local_backend: true
+local_backend: true
 
 media_folder: "src/static/img"
 public_folder: "/static/img"

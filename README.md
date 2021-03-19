@@ -49,6 +49,8 @@ Deployment to a serverless platform like Netlify, CloudFlare and Vercel is prett
    npm run local
    ```
 
+> To keep your forked or cloned repository updated, you may set this repository as the upstream of your project.
+
 ## 🍹 Features & Usage
 
 ### LOGO & ICON

@@ -1,0 +1,4 @@
+---
+name: JAMstack
+slug: jamstack
+---

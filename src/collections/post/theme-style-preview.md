@@ -3,7 +3,7 @@ title: Theme Style Preview
 slug: theme-style-preview
 date: 2021-03-17
 authors:
-  - fizzy
+  - huangyuzhang
 tags:
   - data
   - doc

@@ -10,6 +10,45 @@ It's much more than a starter. 😉
 2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code.
 3. Decoupled everywhere. Customize the site is fun by adding micro-services.
 
+## Live Demo
+
+* Official: [https://fizzy.cc/](https://fizzy.cc/)
+* Netlify: [https://fizzy-jam.netlify.app/](https://fizzy-jam.netlify.app/)
+* CloudFlare: [https://fizzy-jam.pages.dev/](https://fizzy-jam.pages.dev/)
+* Vercel: [https://fizzy-jam.vercel.app/](https://fizzy-jam.vercel.app/)
+
+## Deployment
+### Online Deployment
+Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following on-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Netlify")
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to CLoudFlare")
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Vercel")
+### Local Deployment
+
+1. Clone this repository
+   ```shell
+   git clone https://github.com/huangyuzhang/Fizzy-Jam.git
+   ```
+2. Navigate to the directory
+   ```shell
+   cd Fizzy-Jam
+   ```
+3. Install dependencies
+   ```shell
+   npm install
+   ```
+4. Switch to local branch
+   ```shell
+   git checkout local
+   ```
+5. Run locally
+   ```shell
+   npm run local
+   ```
+
 ## 🍹 Features & Usage
 
 ### LOGO & ICON
@@ -27,11 +66,7 @@ By default, Eleventy will generate HTML files based on the file structure in the
 
 > custom: `collections/<collection_name>/files.md`
 
-{% raw %}
-
 However, you may define `permalink` in the frontmatter of each post or in `<collection_name>.json` for all files within the same folder. For example, in this project, posts are stored in `src/collections/post`. So we can define all posts permalink as `"permalink": "post/{{ slug }}/index.html"` by using `post.json` in the same folder.
-
-
 
 > custom: `collections/<collection_name>/<collection_name>.json`
 
@@ -165,16 +200,16 @@ Several JavaScript functions are introduced, so they can be used in templates.
 
 | JavaScript Function         | Nunjucks Syntax                        | Explain                                   |
 | --------------------------- | -------------------------------------- | ----------------------------------------- |
-| `string.split("seperator")` | `{{ myString | split(",") }}`          | Seperate a string with defined seperator. |
-| `array.includes(item)`      | `{{ myArray | includes(item) }}`       | Check whether an item is in an array.     |
-| `str.substring(start,end)`  | `{{ myString | includes(start,end) }}` | Slice a range of characters of a string.  |
+| `string.split("seperator")` | `{{ myString \| split(",") }}`          | Seperate a string with defined seperator. |
+| `array.includes(item)`      | `{{ myArray \| includes(item) }}`       | Check whether an item is in an array.     |
+| `str.substring(start,end)`  | `{{ myString \| includes(start,end) }}` | Slice a range of characters of a string.  |
 
 ## Nunjucks Highlights
 
 * Nunjucks passes parameters to included templates.
 
   > example
-  > in `single-tag.njk`, we included `loop-post.njk`. So the {% raw %}`{{ slug }}`(tag slug) in single-tag will pass to loop-post, which allows us to filter the posts has the tag: {% raw %}`{{ slug }}`.
+  > in `single-tag.njk`, we included `loop-post.njk`. So the `{{ slug }}`(tag slug) in single-tag will pass to loop-post, which allows us to filter the posts has the tag: `{{ slug }}`.
 
 ## Stacks
 
@@ -205,7 +240,9 @@ See [Contributors][Contributors]
 
 ## 📮 Discussion
 
-Join the discussion on [GitHub Discussion][GitHub Discussion], [Telegram Group][Telegram Group]
+Start to discuss on [GitHub Discussion][GitHub Discussion].
+
+Join the [Telegram Group][Telegram Group] too!
 
 ## 📍 Roadmap & TODOs
 To know the future planning of this project, please visit our [Roadmap][Roadmap].
@@ -231,10 +268,10 @@ The priority of the list below is based on the number of requests.
 
 ## 💡 Contributing
 
-1. Fork it (maybe star this too?)
+1. Fork it (maybe give it a star too? 😉 )
 2. Create your feature branch (`git checkout -b feature-fooBar`)
 3. Commit your changes (`git commit -m 'Add something'`)
-4. Push to the branch to origin (`git push origin feature-fooBar`)
+4. Push to the branch to your origin (`git push origin feature-fooBar`)
 5. Create a new Pull Request to `dev` branch here
 6. Wait for code review and modify if necessary
 

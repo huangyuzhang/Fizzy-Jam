@@ -5,7 +5,7 @@
   "author": "Yuzhang Huang",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production sass src/static/css/main.scss _site/static/css/styles.css",
+    "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production sass --style=compressed src/static/css/main.scss _site/static/css/styles.css",
     "local": "npm-run-all --parallel sass-watch eleventy cms",
     "eleventy": "npx @11ty/eleventy --serve",
     "debug": "set DEBUG=* & eleventy",

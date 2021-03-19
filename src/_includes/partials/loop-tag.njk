@@ -1,0 +1,43 @@
+{# pre-work #}
+  {# store post[name,slug,tags] into variable site_posts #}
+  {% set site_posts = [] %}
+  {% for p in collections.post %}
+      {% set site_posts = (site_posts.push([p.data.tags]), site_posts) %}
+  {% endfor %}
+
+{# iterate tag in collection:tag #}
+{% for tag in collections.tag | reverse %}
+
+  {# Count the posts #}
+  {% set cnt_tag_posts = 0 %}
+  {% for pts in site_posts  %}
+    {# {{p}}<br> #}
+    {% for t in pts | string | split(",") %}
+      {# {{t}}<br> #}
+      {% if t == tag.data.slug %}
+        {% set cnt_tag_posts = cnt_tag_posts + 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {# not showing tags with 0 post #}
+  {% if cnt_tag_posts > 0 %}
+    <div class="column tag-archive-item is-3-desktop is-4-tablet is-6-mobile can-scale">
+        <a href="/tag/{{ tag.data.slug }}/" alt="{{ tag.data.description }}" title="{{ tag.data.description }}">
+        <div class="tag-card has-text-centered">
+          {% if tag.data.image %}
+          <div class="tag-image" style="background-image:url({{ tag.data.image }});"><div class="mask"></div></div>
+          {% else %}
+          <div class="tag-image" style="background-image:url('https://fakeimg.pl/440x230/CCCCCC/000000/?retina=1&text={{ tag.data.name | replace(' ','+') }}&font=noto')"><div class="mask"></div></div>
+          {% endif %}
+          <div class="tag-info">
+              <h2 class="tag-name">{{ tag.data.name }}</h2>
+              <div class="post-count">@{{ tag.data.slug }}</div>
+              <div class="post-count">{{ cnt_tag_posts }} {% if cnt_tag_posts > 1 %} posts {% else %} post {% endif %}</div>
+          </div>
+        </div>
+        </a>
+    </div>
+  {% endif %}
+
+{% endfor %}

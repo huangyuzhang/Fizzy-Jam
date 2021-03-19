@@ -1,0 +1,79 @@
+
+/* ====================== template: Post Archive ====================== 2019.05.28 */
+ul.post-archive{
+	// margin-left:0!important;
+	// line-height: 1rem !important;
+}
+
+.post-archive-item {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: .75rem;
+    border-radius: 6px;
+}
+
+.post-archive-item:hover {
+	background-color: #f6f6f6;
+}
+
+.post-archive-item:hover .subtitle {
+	color: #222;
+}
+
+.post-archive-item:hover .subtitle:before {
+	content: "\e61b";
+}
+
+.post-archive-item .date{
+	// margin:0 .75rem;
+}
+.post-archive-item a{
+	border-bottom:0 !important;
+}
+.post-archive-item .subtitle{
+	margin-bottom: 0rem !important;
+}
+
+.post-archive-item .subtitle:before {
+	font-family: "iconfont" !important;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-right: .8rem;
+	font-size: .8rem;
+}
+
+.post-archive-item .subtitle:before {
+	font-family: "iconfont" !important;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\e645";
+	margin-right: .8rem;
+	font-size: .8rem;
+}
+
+
+.post-archive-item .authors,.post-archive-item .authors a{
+	color:#888;
+	font-size:.9rem;
+}
+.post-archive .post-archive-item time{
+	white-space: nowrap;
+	// width:75px;
+}
+
+@media screen and (max-width:768px){
+	.post-archive-item {
+		padding: .5rem;
+	}
+	ul.post-archive{
+		margin-left:0!important;
+		// line-height: 1rem !important;
+	}	
+	.post-archive-item .date{
+		display:none;
+	}
+}

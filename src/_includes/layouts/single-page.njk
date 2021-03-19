@@ -1,0 +1,24 @@
+---
+layout: section-main
+---
+<article class="single-article">
+    <div class="box is-paddingless is-shadowless is-full-mobile is-centered is-clipped">
+
+        {# featured_image #}
+        {% if image %}
+        <section class="featured-image">
+            <div class="featured-image" style="background-image:url({{ image }});"></div>
+        </section>
+        {% endif %}
+
+        <section class="post-wrap is-vpadding-15">
+            <div class="spacing-15 is-hidden-mobile"></div>
+            {# title #}
+            <h1 class="title is-2 is-size-4-mobile is-montserrat">{{ title }}</h1>
+
+            {# content #}
+            <div class="content post-content is-size-6-mobile is-georgia">{{ content | safe }}</div>
+            <div class="spacing-1 is-hidden-mobile"></div>
+        </section>
+    </div>
+</article>

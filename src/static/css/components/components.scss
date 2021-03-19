@@ -1,0 +1,80 @@
+/* ====================== components ====================== */
+.featured-label {
+    position: absolute;
+    color: #fff;
+    font-size: .875rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: 0 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.featured-label.red {
+    background: #FB3B3B;
+}
+.featured-label.yellow {
+    background: #FFD800;
+    color:#434343;
+}
+.featured-label.large{
+	font-size: 1.2rem;
+}
+@media screen and (max-width: 768px){
+    .featured-label.large{
+		font-size: 1rem;
+	}
+}
+.badge {
+	display: inline-block;
+    padding: 2px 3px 3px;
+	border: 1px solid;
+	font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px !important;
+    line-height: 1em !important;
+    font-weight: 600 !important;
+	text-align: center;
+	vertical-align: middle;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.1);
+    white-space: nowrap;
+    user-select: none;
+    border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.15);
+	margin-left:5px;
+}
+.badge.red {
+    border-color: #ab2929;
+    color: #fff;
+    background: linear-gradient(#e34242,#ab2929);
+}
+.badge.yellow {
+    border-color: #d5b70a;
+    color: #fff;
+    background: linear-gradient(#faf05e,#d5b70a);
+}
+.badge.green {
+    border-color: #84a731;
+    color: #fff;
+    background: linear-gradient(#a4d037,#84a731);
+}
+.badge.blue {
+    border-color: #3777bc;
+    color: #fff;
+    background: linear-gradient(#37a2d0,#3773bc);
+}
+.badge.purple {
+    border-color: #721fae;
+    color: #fff;
+    background: linear-gradient(#c042e3,#721fae);
+}
+.can-scale{
+	transition: all .3s;
+}
+.can-scale:hover{
+	transform: scale(1.01);
+	transition: all .5s ease;
+}
+.img-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,39 @@
+// Online Fonts
+// @import url('https://fonts.font.im/css?family=Lobster|Righteous|Ubuntu:700|Montserrat:400,600,700');
+
+// Local Fonts
+@font-face {
+    font-family: "Fizzy";
+    font-weight: 400;
+    font-style: normal;
+    font-display: auto;
+    src: url("/static/fonts/Fizzy-Regular.woff2") format("woff2"),
+         url("/static/fonts/Fizzy-Regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Fizzy";
+    font-weight: 500;
+    font-style: normal;
+    font-display: auto;
+    src: url("/static/fonts/Fizzy-Medium.woff2") format("woff2"),
+         url("/static/fonts/Fizzy-Medium.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Fizzy";
+    font-weight: 600;
+    font-style: normal;
+    font-display: auto;
+    src: url("/static/fonts/Fizzy-Demi.woff2") format("woff2"),
+         url("/static/fonts/Fizzy-Demi.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Fizzy";
+    font-weight: 700;
+    font-style: normal;
+    font-display: auto;
+    src: url("/static/fonts/Fizzy-Bold.woff2") format("woff2"),
+         url("/static/fonts/Fizzy-Bold.woff") format("woff")
+}

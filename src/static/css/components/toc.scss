@@ -1,0 +1,105 @@
+/* ====================== post: TOC ====================== 2021.03.15 */
+
+#toc {
+	// font-family:'Montserrat', sans-serif;
+	border-radius:3px;
+	// background-color:white;
+	// box-shadow: 0 20px 40px rgba(12,12,94,.1) !important;
+}
+
+/* not displaying below 1280px */
+@media screen and (max-width: 1279px){
+	#toc {
+		display: none;
+	}
+}
+
+#toc {
+	position: fixed;
+	top: 132px;
+	margin-right:10px;
+	padding-right:10px;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+// Uncomment to show title
+//  #toc:before, #toc-img:before {
+//   content: "On This Page";
+//   margin: -1.5rem 0 10px 21px;
+//   display: block;
+//   border-bottom: 1px solid #333;
+//   color: #333;
+//   text-align: center;
+// }
+
+#toc > ul::before,
+#toc > ul > li > ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 7px;
+  bottom: 0;
+  width: 2px;
+  background-color: rgba(177,177,177,.1);
+  opacity: .5;
+}
+
+#toc a {
+  color:#333;
+}
+
+// item
+#toc li {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  border-radius: 3px;
+}
+
+#toc li > a:hover {
+  background-color:rgba(177,177,177,.1);
+}
+
+// h2 group item
+#toc > ul > li > a {
+  display: block;
+  margin: 0;
+  padding: 0 5px 0 21px;
+  font-weight: 600;
+  color: #333;
+  // list-style:none;
+}
+
+// h3 group
+#toc > ul > li > ul {
+  margin: 0;
+  padding:0;
+}
+
+// h3 group item
+#toc > ul > li > ul > li > a {
+  display: block;
+  padding: 0 5px 0 36px;
+  font-weight: 400;
+  color: #333;
+  // list-style: none;
+}
+
+// hover & active item
+// h2 titles
+#toc > ul > li > a:hover,
+#toc > ul > li > a.active{
+  color: #c668b9;
+  background-color:rgba(177,177,177,.1);
+}
+// h3 titles
+#toc > ul > li > ul > li > a:hover,
+#toc > ul > li > ul > li > a.active{
+  color: #d393d3;
+  background-color:rgba(177,177,177,.1);
+}
+#toc > ul > li > ul > li > a.active {
+  font-weight:600;
+}

@@ -1,0 +1,57 @@
+{# post author card, "authorList" in ../layout/single-post.njk #}
+<div class="authors">
+    <div class="columns is-multiline">
+      {% for name,slug,avatar,bio,website,github,twitter,location in authorList %}
+      <div class="column">
+          <div class="card" style="border-radius:6px;overflow:hidden;">
+            <div class="card-content about-author has-text-centered">
+              <a href="/author/{{ slug }}/" class="has-text-grey-darker">
+                  <figure class="image is-96x96 is-margin-auto">
+                    {% if avatar %}
+                      <img class="image-squared box author-avatar" src="{{ avatar }}" alt="{{ name }}" title="{{ name }}">
+                    {% else %}
+                      <img class="image-squared box author-avatar" src="/static/img/user.svg" alt="{{ name }}" title="{{ name }}">
+                    {% endif %}
+                  </figure>
+                  <div class="name is-main-font">{{ name }}</div>
+              </a>
+              {# author: meta #}
+              <ul class="meta-info is-size-6 has-text-grey-light" style="min-height:1rem;">
+                  {% if website %}
+                      <li><a href="{{ website }}" target="_blank" class="has-text-grey"><i class="iconfont icon-home"></i></a></li>
+                  {% endif %}
+                  {% if github %}
+                      <li><a href="{{ github }}" target="_blank" class="has-text-grey"><i class="iconfont icon-github"></i></a></li>
+                  {% endif %}
+                  {% if twitter %}
+                      <li><a href="{{ twitter }}" target="_blank" class="has-text-grey"><i class="iconfont icon-twitter"></i></a></li>
+                  {% endif %}
+                  {# {% if facebook %}
+                      <li><a href="{{ facebook }}" target="_blank" class="has-text-grey"><i class="iconfont icon-facebook"></i></a></li>
+                  {% endif %}
+                  {% if zhihu %}
+                      <li><a href="{{ zhihu }}" target="_blank" class="has-text-grey"><i class="iconfont icon-link"></i></a></li>
+                  {% endif %}
+                  {% if weibo %}
+                      <li><a href="{{ weibo }}" target="_blank" class="has-text-grey"><i class="iconfont icon-link"></i></a></li>
+                  {% endif %} #}
+                  {% if location %}
+                      <li><span class="has-text-grey"><i class="iconfont icon-location"></i> {{ location }}</span></li>
+                  {% endif %}
+              </ul>
+
+              {# author bio #}
+                <div class="bio is-vcentered limit-text-line-3" style="min-height:1rem;" title="{{ bio }}" alt="{{ bio }}">
+                  {% if bio %}
+                    {{ bio }}
+                  {% endif %}
+                </div>
+            </div>
+            <footer class="card-footer">
+              <a href="/author/{{ slug }}/" class="card-footer-item has-background-white-bis has-text-grey-darker">See all posts by {{ name }}</a>
+            </footer>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+</div>

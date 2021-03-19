@@ -1,0 +1,348 @@
+backend:
+  # Use netlify identity as backend
+  # https://www.netlifycms.org/docs/git-gateway-backend/
+  name: git-gateway
+  branch: main
+
+  # use github as backend, can login with github account, but require push access to the repo.
+  # ideal for personal or small group site
+  # https://www.netlifycms.org/docs/github-backend/
+  # name: github
+  # repo: huangyuzhang/fizzy-jam
+
+
+# local backend, run "npx netlify-cms-proxy-server"
+# local_backend: true
+
+media_folder: "src/static/img"
+public_folder: "/static/img"
+
+# publish_mode: editorial_workflow
+
+display_url: /
+
+locale: "en"
+
+show_preview_links: true
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+# A list of collections the CMS should be able to edit
+# doc: https://www.netlifycms.org/docs/collection-types/
+# sample: https://github.com/netlify/netlify-cms/blob/master/dev-test/config.yml
+collections:
+  # Posts (folder collection)
+  - label: "Posts" # Used in the admin UI
+    label_singular: "post" # Used in the admin UI
+    name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
+    folder: "src/collections/post"
+    # https://www.netlifycms.org/docs/configuration-options/#slug-type
+    slug: "{{fields.slug}}" # {{slug}} will use the title-generated slug as file name
+    # preview_path: "post/{{fields.slug}}" # work for editorial workflow
+    summary: "{{title}} ({{date}}) | By: {{authors[0]}} | Main Tag: {{tags[0]}}" # CMS collection list UI
+    create: true
+    editor:
+      preview: false
+    sortable_fields: ["commit_date", "title", "author", "date"]
+    # Used in the UI, for filter
+    view_filters:
+      - label: Posts With Index
+        field: title
+        pattern: "This is post #"
+      - label: Posts Without Index
+        field: title
+        pattern: front matter post
+      - label: "Posts published in 2020"
+        field: date
+        pattern: "2020"
+      - label: Drafts
+        field: draft
+        pattern: true
+    view_groups:
+      - label: Year
+        field: date
+        # groups items based on the value matched by the pattern
+        pattern: \d{4}
+      - label: Drafts
+        field: draft
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        pattern: ["^[a-z0-9]+(?:[._-][a-z0-9]+)*$","A slug can have no spaces or special characters"]
+        hint: >-
+          The post URL (do not include folder or file extension, change slug may cause link break!)
+      # https://www.netlifycms.org/docs/widgets/#datetime
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        # default: "" # comment it to get the current datetime
+        format: "YYYY-MM-DD" # Used in front-end and readableDate function
+        date_format: "YYYY-MM-DD" # e.g. 2021.12.24
+        time_format: false # e.g. "HH:mm" -> 21:07
+        picker_utc: false
+      # Relation -> Authors
+      - label: "Authors"
+        name: "authors"
+        widget: "relation"
+        collection: "author"
+        value_field: "slug"
+        search_fields: ["name", "website", "slug", "description"]
+        display_fields: ["{{name}}({{fields.slug}})"]
+        multiple: true
+      # Relation -> Tag
+      - label: "Tags"
+        name: "tags"
+        widget: "relation"
+        collection: "tag"
+        value_field: "slug"
+        search_fields: ["name","slug","description"]
+        display_fields: ["name"]
+        options_length: 10
+        required: false
+        multiple: true
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - { label: "Featured Post", name: "isFeatured", widget: "boolean", required: false, default: false }
+      - { label: "Table of Content", name: "toc", widget: "boolean", default: true, required: false }
+      - { label: "Description", name: "description", widget: "text", hint: "Short Summary", required: false } # text: multi-line text block
+      - { label: "Content", name: "body", widget: "markdown", modes: ["raw","rich_text"] }
+
+  # Pages (folder collection)
+  - label: "Pages"
+    label_singular: "page"
+    name: "page"
+    folder: "src/collections/page"
+    slug: "{{path}}"
+    # preview_path: "post/{{fields.slug}}" # work for editorial workflow
+    description: >-
+      Use pages to customize post listing page, about page, etc.
+    summary: "{{title}} | {{path}}"
+    create: true
+    editor:
+      preview: false
+    sortable_fields: ["commit_date", "title", "author", "date"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Path"
+        name: "path"
+        widget: "string"
+        pattern: ["^[a-z0-9]+(?:[._-][a-z0-9]+)*$","A slug can have no spaces or special characters"]
+        hint: >-
+          Used in permalink "/{{ path }}/ and navigation url, e.g.: "about".
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        # default: "" # comment it to get the current datetime
+        format: "YYYY-MM-DD" # Used in front-end and readableDate function
+        date_format: "YYYY-MM-DD" # e.g. 2021.12.24
+        time_format: false # e.g. "HH:mm" -> 21:07
+        picker_utc: false
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        tagname: ""
+      - label: "Layout"
+        name: "layout"
+        widget: "select"
+        options: ["single-page", "list-post", "archive", "list-tag", "list-author"]
+        default: "single-page"
+        hint: "Layouts are stored in `src/_includes/layouts/`."
+      - { label: "Description", name: "description", widget: "text", hint: "Used in SEO Description", required: false } # text: multi-line text block
+      - { label: "Content", name: "body", widget: "markdown", modes: ["raw","rich_text"], required: false }
+
+  # Tags (folder collection)
+  - label: "Tags"
+    label_singular: "tag"
+    name: "tag"
+    folder: "src/collections/tag"
+    description: >-
+      Change tag slug may cause link break, make sure to change the file name in `src/collections/tag` as well.
+      Delete a tag will NOT remove this tag in posts' md files, manual modification required.
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{name}} ({{fields.slug}})"
+    editor:
+      preview: false
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        required: true
+        pattern: ["^[a-z0-9]+(?:[._-][a-z0-9]+)*$","A slug can have no spaces or special characters"]
+        hint: >-
+          Change slug requires manual modification on posts' tag list.
+      - label: "SEO Title"
+        name: "seoTitle"
+        widget: "string"
+        required: false
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        tagname: ""
+      - { label: "Description", name: "description", widget: "text", required: false} # text: multi-line text block
+
+  # Authors (folder collection)
+  - label: "Authors"
+    label_singular: "author"
+    name: "author"
+    folder: "src/collections/author/"
+    description: >-
+      Change slug may cause link break, make sure to change the file name in `src/collections/author` as well.
+      Delete an author will NOT remove this author in posts' md files.
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{name}} ({{fields.slug}}) - {{website}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Name", name: "name", widget: "string", hint: "First and Last" }
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        required: true
+        pattern: ["^[a-z0-9]+(?:[._-][a-z0-9]+)*$","A slug can have no spaces or special characters"]
+        hint: >-
+          The author URL (do not include folder or file extension)
+      - { label: "Avatar", name: "avatar", widget: "image", hint: "Squared image recommended.", allow_multiple: false, required: false}
+      - { label: "Background Image", name: "bgImage", widget: "image", allow_multiple: false, required: false}
+      - { label: "Bio", name: "bio", widget: "markdown", required: false}
+      - label: "More"
+        name: "more"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {label: "Website", name: "website", widget: "string", hint: "Start with https://", required: false}
+          - {label: "GitHub", name: "github", widget: "string", required: false}
+          - {label: "Twitter", name: "twitter", widget: "string", required: false}
+          - {label: "Location", name: "location", widget: "string", required: false}
+
+  # Settings (file collection)
+  - label: "Settings"
+    name: "settings"
+    description: "Manage navigation, authors, and site-level settings."
+    editor:
+      preview: false
+    delete: false # Prevent users from deleting documents in this collection
+    files:
+      - label: "Navigation"
+        name: "navigation"
+        file: "src/_data/navigation.yaml"
+        fields:
+          - label: "Nav Items"
+            name: "navItems"
+            widget: "list"
+            # allow_add: false
+            summary: "{{fields.text}}: {{fields.url}}"
+            collapsed: true
+            fields:
+              - { label: Title, name: text, widget: string }
+              - { label: URL, name: url, widget: string }
+          - label: "Footer Items"
+            name: "footerItems"
+            widget: "list"
+            allow_add: false
+            collapsed: true
+            fields:
+              - { label: Title, name: text, widget: string }
+              - { label: URL, name: url, widget: string }
+      # - label: "Quick Links"
+      #   name: "links"
+      #   file: "src/_data/quicklinks.yaml"
+      #   fields:
+      #     - label: "Link Items"
+      #       name: "links"
+      #       widget: "list"
+      #       collapsed: false
+      #       fields:
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: URL, name: url, widget: string }
+      #         - { label: Description, name: desc, widget: string }
+      - label: "Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        widget: "object"
+        fields:
+          # Meta Info
+          - label: "Site Meta"
+            name: "meta"
+            allow_add: false
+            widget: "object"
+            summary: "{{fields.name}} - {{fields.url}}"
+            delete: false
+            collapsed: true
+            fields:
+              - { label: Site Name, name: name, widget: string, required: false }
+              - { label: Site URL, name: url, widget: string, required: false }
+              - { label: LOGO, name: logo, widget: image, allow_multiple: false, required: false}
+              - { label: Icon, name: icon, widget: image, allow_multiple: false, required: false}
+              - { label: Description, name: description, widget: markdown, hint: Support markdown, required: false}
+              - { label: Footer Info, name: footerInfo, widget: markdown, hint: Support markdown, required: false}
+          # Post Listing Settings
+          - label: "Post Listing"
+            name: "post"
+            allow_add: false
+            widget: "object"
+            # summary: "{{fields.name}} - {{fields.url}}"
+            delete: false
+            collapsed: true
+            fields:
+              - { label: "Show Featured Image", name: "showFeatureImage", widget: "boolean", required: false, default: true }
+              - { label: "Feature Text", name: "featureText", widget: "string", hint: "default: featured", required: false, default: "featured" }
+          # SEO
+          - label: "SEO Settings"
+            name: "seo"
+            allow_add: false
+            widget: "object"
+            summary: "{{fields.title}} - {{fields.keywords}}"
+            delete: false
+            collapsed: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Keywords", name: "keywords", widget: "string", required: false }
+          # Appearance
+          - label: "Appearance"
+            name: "appearance"
+            allow_add: false
+            widget: "object"
+            summary: "{{fields.title}} - {{fields.keywords}}"
+            delete: false
+            collapsed: true
+            fields:
+              - { label: "Main Color", name: "mainColor", widget: "string", default: "#FB3B3B", required: false }
+              # - { label: "Link Hover Color", name: "linkHoverColor", widget: "string", default: "#FF7A7A", required: false }
+          # Components
+          - label: "Components"
+            name: "component"
+            allow_add: false
+            widget: "object"
+            summary: "{{fields.title}} - {{fields.keywords}}"
+            delete: false
+            collapsed: true
+            fields:
+              - { label: "Author Box", name: "authorBox", widget: "boolean", default: true, required: false }
+              - { label: "Code Line Numbers", name: "codeLineNumbers", widget: "boolean", default: true, required: false }
+              # - { label: "Link Hover Color", name: "linkHoverColor", widget: "string", default: "#FF7A7A", required: false }
+
+      # - label: "Authors"
+      #   name: "authors"
+      #   file: "src/_data/authors.yaml"
+      #   fields:
+      #     - name: authors
+      #       label: Authors
+      #       widget: list
+      #       collapsed: false
+      #       fields:
+      #         - { label: "Name", name: "name", widget: "string", hint: "First and Last" }
+      #         - { label: "Website", name: "website", widget: "string", hint: "Start with https://", required: false}
+      #         - { label: "Avatar", name: "avatar", widget: "image", allow_multiple: false, required: false}
+      #         - { label: "Description", name: "description", widget: "markdown", required: false}

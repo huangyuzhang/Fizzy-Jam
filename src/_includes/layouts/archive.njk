@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{# pre-work #}
+  {# store author[name,slug,avatar] into variable site_posts #}
+  {# {% set site_posts = [] %}
+  {% for post in collections.author %}
+      {% set site_posts = (site_posts.push([author.data.name,author.data.slug,author.data.avatar]), site_posts) %}
+  {% endfor %} #}
+
+{# Title & Content #}
+<section class="section is-paddingless-bottom">
+  <div class="container">
+      <h1 class="title has-text-centered"><i class="iconfont icon-archive"></i> {{ title }} </h1>
+      <div class="content has-text-centered post-content is-size-6-mobile">
+        {{ content | safe}}
+      </div>
+  </div>
+</section>
+
+{# Section: post archive list #}
+<section class="section is-paddingless-top is-mobile-paddingless">
+  <div class="columns">
+    <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+    <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+      <article class="single-article">
+        <div class="box is-paddingless is-shadowless is-full-mobile is-centered is-clipped">
+          <section class="post-wrap is-vpadding-15">
+            <div class="spacing-15 is-hidden-mobile"></div>
+            <div class="content post-content is-size-6-mobile">
+              <p>There are {{ collections.post | length }} posts in total.</p>
+              {% include "../partials/loop-post-archive.njk" %}
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+    <div class="column is-hidden-touch"></div>
+  </div>
+</section>

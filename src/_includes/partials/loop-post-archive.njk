@@ -1,0 +1,23 @@
+{% set years = [] %}
+{% for post in collections.post %}
+  {% set year = post.data.date | dateFormat | substring(0,4) %}
+  {% if not years | includes(year) %}
+    {% set years = (years.push(year), years) %}
+  {% endif %}
+{% endfor %}
+
+{% for year in years | reverse %}
+  <h2 class="year">{{ year }}</h2>
+  <ul class="post-archive">
+    {% for post in collections.post | reverse %}
+      {% if post.data.date | dateFormat | substring(0,4) == year %}
+        <a href='/post/{{ post.data.slug }}/' title="{{ post.data.description }}">
+          <li class='post-archive-item' year="{{ post.data.date | dateFormat | substring(0,4) }}" month="{{ post.data.date | dateFormat | substring(5,7) }}">
+            <span class="subtitle level-left limit-text-wide"> {{ post.data.title }} </span>
+            <span class="date level-right"><time class="button is-static is-size-7">{{ post.data.date | readableDate }}</time></span>
+          </li>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endfor %}

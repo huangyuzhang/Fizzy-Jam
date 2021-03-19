@@ -1,0 +1,182 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+}
+*{outline:none!important}
+body, html{
+  overflow-x: hidden;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  vertical-align: baseline;
+}
+html {
+  font-size: 58%;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  font-size: 16px;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Fizzy",-apple-system,BlinkMacSystemFont,'Tahoma',Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji !important;
+  // font-family:
+  //               "Montserrat",
+  //               "Fizzy",
+  //               'Tahoma'
+  //               ,'Helvetica'
+  //               ,-apple-system
+  //               ,"PingFang SC"
+  //               ,BlinkMacSystemFont
+  //               ,opensans
+  //               ,Optima
+  //               // ,"STXihei"
+  //               ,"Microsoft YaHei"
+  //               ,"微软雅黑"
+  //               ,"黑体"
+  //               ,"Apple Color Emoji"
+  //               ,"Segoe UI Emoji"
+  //               ,"Segoe UI Symbol"
+  //               ,Arial
+  //               ,sans-serif !important;
+  // background: #f3f7f9;
+  // letter-spacing: 1.0382;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s;
+  &:hover {
+    color: #C668B9;
+  }
+}
+body, div, a, p, ul, li, ol, table, tr, td {
+  font-weight: normal;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+i.iconfont {
+  font-weight:400 !important;
+}
+
+h1, h1 a, .content h1, h1.title {
+  font-weight: 700 !important;
+}
+h2, h2 a, .content h2, h2.title {
+  font-weight: 600 !important;
+}
+h3, h3 a, .content h3, h3.title,
+h4, h4 a, .content h4, h4.title,
+h5, h5 a, .content h5, h5.title,
+h6, h6 a, .content h6, h6.title {
+  font-weight: 500 !important;
+}
+
+h1, h1 a, .content h1, h1.title,
+h2, h2 a, .content h2, h2.title,
+h3, h3 a, .content h3, h3.title,
+h4, h4 a, .content h4, h4.title,
+h5, h5 a, .content h5, h5.title,
+h6, h6 a, .content h6, h6.title,
+.is-main-font {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family:
+  // "Montserrat",
+  "Fizzy",
+  "Ubuntu",
+  'Tahoma'
+  ,"Helvetica Neue"
+  ,Helvetica
+  ,-apple-system
+  ,"PingFang SC"
+  ,BlinkMacSystemFont
+  ,"PingFang SC"
+  ,"Heiti SC"
+  // ,"STXihei"
+  ,"Microsoft YaHei"
+  ,"微软雅黑"
+  ,"黑体"
+  ,"Apple Color Emoji"
+  ,"Segoe UI Emoji"
+  ,"Segoe UI Symbol"
+  ,Arial
+  ,sans-serif;
+}
+
+.main {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #fff;
+  .main-content {
+    flex: 1;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+}
+
+.meta-text {
+  color:#666;
+  word-spacing: .1rem;
+  font-family: inherit;
+}
+
+// for eleventy-plugin-lazyimages
+img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+}
+
+// Overwrite Bulma CSS
+/* fix "has-spaced-navbar-fixed-top" cut off the top on mobile devices 2019.04.09 */
+@media screen and (max-width: 1087px){
+  body.has-spaced-navbar-fixed-top, html.has-spaced-navbar-fixed-top {
+      padding-top: 3.25rem;
+  }
+}
+.number {
+  align-items: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  display: inherit;
+  font-size: inherit;
+  height: inherit;
+  justify-content: inherit;
+  margin-right: inherit;
+  min-width: inherit;
+  padding: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+}
+.content .tag, .content .number {
+  align-items: inherit;
+  display: inline;
+  padding: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+  border-radius: inherit;
+  margin-right: inherit;
+  font-weight: inherit;
+  white-space: inherit;
+  background: inherit; }
+
+/* listing padding on mobile*/
+@media screen and (max-width: 768px){
+  main.section {
+      // padding: 1.5rem !important;
+  }
+}
+
+.content code {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace !important;
+}

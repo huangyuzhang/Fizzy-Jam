@@ -1,0 +1,43 @@
+<header>
+  <nav id="navbar" class="navbar is-white is-spaced has-shadow-thin is-fixed-top" style="z-index:999;" role="navigation" aria-label="main navigation">
+    <div class="nav-container column is-paddingless is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+      <div class="navbar-brand">
+
+        {# logo area: LOGO > ICON & SiteName > SiteName #}
+        {% if settings.meta.logo %}
+          <div class="navbar-item logo">
+              <a href="/">
+                  <img src="{{ settings.meta.logo }}" class="logo" alt="{{ settings.meta.name }}" title="{{ settings.meta.name }} - {{ settings.meta.description }}" width="auto" height="28">
+              </a>
+          </div>
+        {% else %}
+          <div class="navbar-item text-logo" alt="{{ settings.meta.name }}" title="{{ settings.meta.name }} - {{ settings.meta.description }}">
+              <a class="align-vcentered" href="/">
+                {% if settings.meta.icon %}
+                  <img src="{{ settings.meta.icon }}" class="icon">
+                {% endif %}
+                {{ settings.meta.name }}<span style="color:{{settings.appearance.mainColor}}">.</span>
+              </a>
+          </div>
+        {% endif %}
+        {# logo area end #}
+
+        {# burger in mobile devices #}
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarPrimary">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+
+      </div>
+
+      {# site navigation #}
+      <div id="navbarPrimary" class="navbar-menu">
+        <div class="navbar-start">
+          {% include "./navigation.njk" %}
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>

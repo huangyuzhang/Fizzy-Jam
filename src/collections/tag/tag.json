@@ -1,0 +1,8 @@
+{
+    "layout": "single-tag",
+    "path": "tag",
+    "permalink": "/tag/{{ slug }}/index.html",
+    "tags": [
+        "tag"
+    ]
+}

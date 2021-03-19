@@ -1,0 +1,79 @@
+/* index: post-card 2019.04.09 */
+@media screen and (min-width: 769px){
+	.post-card {
+		min-height:250px;
+	}
+}
+/* index: featured-image 2019.04.10 */
+.featured-image {
+	height:100%;
+	/* border-radius: 8px 0 0 8px; */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color:#e9f0f3; /* added background color as placeholder*/
+}
+@media screen and (max-width: 768px){
+	.featured-image {
+	min-height:140px;
+	/* border-radius: 6px 6px 0 0; */
+	}
+}
+
+
+
+/* index: post-meta 2019.04.09 updated: 2019.04.11 */
+.post-info {
+	position: relative;
+}
+
+@media screen and (max-width: 768px){
+	.post-info {
+		padding: 1rem;
+	}
+	.post-card.columns{margin-top:0;}
+	.post-card .column{
+		padding: 0;
+	}
+}
+@media screen and (min-width: 769px) and (max-width: 1215px){
+	.post-info {
+		padding:2rem;
+	}
+}
+@media screen and (min-width: 1216px){
+	.post-info {
+		padding:2.5rem;
+	}
+}
+
+/* index: featured-label - Updated:2019.05.10 */
+.post-info .featured-label {
+	top: 10px;
+	right: 10px;
+	height: 28px;
+    line-height: 28px;
+}
+.featured-label span{
+	display:none;
+}
+.featured-label:hover span {
+	display:inline-block;
+}
+@media screen and (max-width: 768px){
+    .post-info .featured-label {
+        font-size: 0.5rem;
+    }
+	.post-info .featured-label.has-img {
+		top: -33px;
+		right: 10px;
+		height: 26px;
+    	line-height: 26px;
+	}
+	.post-info .featured-label.no-img {
+		top: 10px;
+    	right: 10px;
+		height: 26px;
+    	line-height: 26px;
+	}	
+}

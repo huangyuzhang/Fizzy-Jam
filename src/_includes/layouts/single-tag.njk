@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{# pre-work #}
+  {# store post[name,slug,tags] into variable site_posts #}
+  {% set site_posts = [] %}
+  {% for p in collections.post %}
+      {% set site_posts = (site_posts.push([p.data.tags]), site_posts) %}
+  {% endfor %}
+
+  {# Count the posts #}
+  {% set cnt_tag_posts = 0 %}
+  {% for p in site_posts  %}
+    {# {{p}}<br> #}
+    {% for t in p | string | split(",") %}
+      {# {{t}}<br> #}
+      {% if t == slug %}
+        {% set cnt_tag_posts = cnt_tag_posts + 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+{# section: tag info #}
+{% if image %}
+<section class="hero tag-list-header is-bold bg-cover-center" style="background-image:url({{ image }});">
+{% else %}
+<section class="hero tag-list-header is-bold bg-cover-center" style="background-image: linear-gradient(to bottom right, #ff2827, #c16aff);">
+{% endif %}
+  <div class="hero-body has-darker-modal is-montserrat">
+    <div class="container has-text-centered">
+        <h1 class="title is-vmargin-2 is-uppercase has-text-white is-marginless-bottom" alt="{{ name }}">
+            <span class="is-padding-05-15 round-border-6">
+                <i class="iconfont icon-tag"></i> {{ name }}
+            </span>
+        </h1>
+        <h2 class="subtitle is-vmargin-2 has-text-white is-centered is-margin-auto" style="max-width:760px;">
+        {{ description }}
+        </h2>
+        <div id="post-count" class="has-text-white">
+            <a class="has-text-white" href="#post-count">
+                <span class="has-dark-modal is-padding-05-15 round-border-2rem">
+                  {{ cnt_tag_posts }} {% if cnt_tag_posts > 1 %} posts {% else %} post {% endif %}
+                </span>
+            </a>
+        </div>
+    </div>
+  </div>
+</section>
+
+{# section: post list #}
+<main class="section">
+  <div class="columns">
+    <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+    <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+        {% include "../partials/loop-post.njk" %}
+    </div>
+    <div class="column is-hidden-touch"></div>
+  </div>
+</main>

@@ -1,0 +1,85 @@
+---
+layout: default
+---
+{# pre-work #}
+  {# store post[name,slug,tags] into variable site_posts #}
+  {% set site_posts = [] %}
+  {% for p in collections.post %}
+    {% set site_posts = (site_posts.push([p.data.authors]), site_posts) %}
+  {% endfor %}
+
+  {# Count the posts #}
+  {% set cnt_author_posts = 0 %}
+  {% for auths in site_posts  %}
+    {# {{p}}<br> #}
+    {% for a in auths | string | split(",") %}
+      {# {{t}}<br> #}
+      {% if a == slug %}
+        {% set cnt_author_posts = cnt_author_posts + 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+{# section: author info #}
+{% if bgImage %}
+<section class="hero tag-list-header is-bold bg-cover-center" style="background-image:url({{ bgImage }});">
+{% else %}
+<section class="hero tag-list-header is-bold bg-cover-center" style="background-image: linear-gradient(to bottom right, #3f0fff, #fc3b3b);">
+{% endif %}
+  <div class="hero-body has-dark-modal is-montserrat">
+    <div class="about-author container has-text-centered">
+        {% if avatar %}
+        <figure class="image is-96x96 is-margin-auto">
+            <img class="image-squared is-rounded" src="{{ avatar }}" alt="{{name}}" title="{{ name }}">
+        </figure>
+        {% endif %}
+        <h1 class="title has-padding-05 has-text-white">
+            {{ name }}
+        </h1>
+        <h2 class="subtitle has-text-white">
+            {# {{plural pagination.total empty='No posts' singular='% post' plural='% posts'}} #}
+        <ul class="meta-info is-size-6">
+            <li class="has-text-weight-bold">
+              {% if cnt_author_posts == 0 %}
+                No post yet
+              {% elif cnt_author_posts == 1 %}
+                1 post
+              {% else %}
+                {{ cnt_author_posts }} posts
+              {% endif %}
+            </li>
+            <li>|</li>
+            {% if more.website %}<li><a href="{{ more.website }}" class="has-text-white" target="_blank"><i class="iconfont icon-link"></i></a></li>{% endif %}
+            {% if more.github %}<li><a href="{{ more.github }}" class="has-text-white" target="_blank"><i class="iconfont icon-github"></i></a></li>{% endif %}
+            {% if more.twitter %}<li><a href="{{ more.twitter }}" class="has-text-white" target="_blank"><i class="iconfont icon-twitter"></i></a></li>{% endif %}
+            {% if more.location %}<li><i class="iconfont icon-location"></i> {{ more.location }}</li>{% endif %}
+        </ul>
+        </h2>
+        <div class="has-text-white is-centered is-margin-auto" style="max-width:760px;">
+            {% if bio %}
+              {{ bio }}
+            {% endif %}
+        </div>
+    </div>
+  </div>
+</section>
+
+
+{# main #}
+<main class="section">
+    <div class="columns">
+        <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+        <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+          {% include "../partials/loop-post.njk" %}
+        </div>
+        <div class="column is-hidden-touch"></div>
+    </div>
+</main>
+
+{# pagination #}
+<section class="section is-padding-top-05">
+    <div class="container">
+        {# {{pagination}} #}
+    </div>
+</section>
+

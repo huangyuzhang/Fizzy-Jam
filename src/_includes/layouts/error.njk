@@ -1,0 +1,23 @@
+---
+layout: default
+title: Error
+description: "An error ocurred."
+---
+<main class="section">
+    <div class="columns">
+      <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+      <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+        <div class="box has-text-centered">
+          <div class="error-wrap">
+              <h1 class="error-code">{{ code }}</h1>
+              <h2 class="title error-message">{{ title }}</h2>
+              <p class="message-manual is-montserrat">{{ description}}</p>
+              <a class="button subtitle has-text-weight-semibold is-danger is-rounded is-montserrat" href="/">
+                <i class="iconfont icon-home"></i>&nbsp;Go to home page
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="column is-hidden-touch"></div>
+    </div>
+</main>

@@ -1,0 +1,78 @@
+---js
+{
+  currentYear: function() {
+    return (new Date()).getFullYear();
+  }
+}
+---
+<!DOCTYPE html>
+<html lang="en" class="has-spaced-navbar-fixed-top">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>{% if code %}{{code}}&nbsp;-&nbsp;{% endif %}{% if seoTitle %}{{ seoTitle }}{% elif title %}{{ title }}{% elif name %}{{ name }}{% endif %}</title>
+    {% if description %}<meta name="description" content="{{description}}"/>{% endif %}
+
+    {% block head %}{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css"/>
+
+    {% if prism == true %}
+      {# <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css"> #}
+      <link rel="stylesheet" type="text/css" href="/static/css/prism-line-numbers.css">
+      <link rel="stylesheet" type="text/css" href="/static/css/prism.css">
+    {% endif %}
+
+    {% if katex == true %}
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css">
+      <script defer src="/static/js/katex.min.js"></script>
+      <script defer src="/static/js/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+    {% endif %}
+
+  </head>
+  <body class="has-background-light-line">
+
+    {% include "../partials/header.njk" %}
+
+    {{ content | safe }}
+
+    {% include "../partials/footer.njk" %}
+
+    <script src="/static/js/footer.js"></script>
+    {# <script src="/static/js/alpine.js"></script> #}
+
+    {% if toc == true %}
+      <script src="/static/js/toc.js"></script>
+      <script>
+        const toc = new fizzyToc({
+          contentEl: 'content',
+          tocEl: 'toc',
+          linkClass: 'toc-item',
+          linkActiveClass: 'active',
+          selector: ['h2', 'h3'],
+          supplyTop: 104,
+          active: function (el) {
+          }
+        });
+      </script>
+    {% endif %}
+    
+    {% if prism == true %}
+      <script src="/static/js/prism-line-numbers.min.js"></script>
+      <script defer src="/static/js/prism.js"></script>
+    {% endif %}
+
+    {% if path == "/" %}
+      <!-- Netlify Identity Widget: Needed only if you are using Netlify Identity feature -->
+      <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    {% endif %}
+
+    <!-- faster page-loading -->
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+
+  </body>
+</html>

@@ -1,0 +1,15 @@
+meta:
+  name: Fizzy
+  url: ""
+  description: "Exploring exciting things."
+  icon: /favicon.ico
+  footerInfo: The voyage begins in London.
+post:
+  showFeatureImage: true
+  featureText: featured
+appearance:
+  mainColor: "#C668B9"
+  linkHoverColor: "#C668B9"
+component:
+  authorBox: true
+  codeLineNumbers: true

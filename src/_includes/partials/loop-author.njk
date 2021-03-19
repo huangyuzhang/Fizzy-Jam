@@ -1,0 +1,79 @@
+{# pre-work #}
+  {# store post[name,slug,tags] into variable site_posts #}
+  {% set site_posts = [] %}
+  {% for p in collections.post %}
+      {% set site_posts = (site_posts.push([p.data.authors]), site_posts) %}
+  {% endfor %}
+
+{# iterate author in collection:author #}
+{% for author in collections.author %}
+
+  {# Count the posts #}
+  {% set cnt_author_posts = 0 %}
+  {% for pas in site_posts  %}
+    {# {{p}}<br> #}
+    {% for a in pas | string | split(",") %}
+      {# {{t}}<br> #}
+      {% if a == author.data.slug %}
+        {% set cnt_author_posts = cnt_author_posts + 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {# uncomment below if statement to hide authors with 0 post #}
+  {% if cnt_author_posts > 0 %}
+    <div class="column tag-archive-item is-4-desktop is-6-tablet is-12-mobile can-scale"
+          title="@{{ author.data.slug }}" alt="@{{ author.data.slug }}">
+      <div class="card" style="border-radius:6px;overflow:hidden;">
+        <div class="card-content about-author has-text-centered">
+            <a href="/author/{{ author.data.slug }}/" class="has-text-grey-darker">
+                <figure class="image is-96x96 is-margin-auto">
+                  {% if author.data.avatar %}
+                    <img class="image-squared box author-avatar" src="{{ author.data.avatar }}" alt="{{ author.data.name }}" title="{{ author.data.name }}">
+                  {% else %}
+                    <img class="image-squared box author-avatar" src="/static/img/user.svg" alt="{{ author.data.name }}" title="{{ author.data.name }}">
+                  {% endif %}
+                </figure>
+                <div class="name is-main-font">{{ author.data.name }}</div>
+            </a>
+            {# author: meta #}
+            <ul class="meta-info is-size-6 has-text-grey-light" style="height:36px;">
+                {% if author.data.more.website %}
+                    <li><a href="{{ author.data.more.website }}" target="_blank" class="has-text-grey"><i class="iconfont icon-home"></i></a></li>
+                {% endif %}
+                {% if author.data.more.github %}
+                    <li><a href="{{ author.data.more.github }}" target="_blank" class="has-text-grey"><i class="iconfont icon-github"></i></a></li>
+                {% endif %}
+                {% if author.data.more.twitter %}
+                    <li><a href="{{ author.data.more.twitter }}" target="_blank" class="has-text-grey"><i class="iconfont icon-twitter"></i></a></li>
+                {% endif %}
+                {# {% if facebook %}
+                    <li><a href="{{ facebook }}" target="_blank" class="has-text-grey"><i class="iconfont icon-facebook"></i></a></li>
+                {% endif %}
+                {% if zhihu %}
+                    <li><a href="{{ zhihu }}" target="_blank" class="has-text-grey"><i class="iconfont icon-link"></i></a></li>
+                {% endif %}
+                {% if weibo %}
+                    <li><a href="{{ weibo }}" target="_blank" class="has-text-grey"><i class="iconfont icon-link"></i></a></li>
+                {% endif %} #}
+                {% if author.data.more.location %}
+                    <li><span class="has-text-grey"><i class="iconfont icon-location"></i> {{ author.data.more.location }}</span></li>
+                {% endif %}
+            </ul>
+
+            {# author bio #}
+            <div class="bio is-vcentered limit-text-line-2" style="min-height:3rem;" title="{{ author.data.bio }}" alt="{{ author.data.bio }}">
+              {% if author.data.bio %}
+                {{ author.data.bio }}
+              {% endif %}
+            </div>
+
+        </div>
+        <footer class="card-footer">
+          <a href="/author/{{ author.data.slug }}/" class="card-footer-item has-background-white-bis has-text-grey-darker">See {{ cnt_author_posts }} {% if cnt_author_posts > 1 %} posts {% else %} post {% endif %} by {{ author.data.name }}</a>
+        </footer>
+      </div>
+    </div>
+  {% endif %}
+
+{% endfor %}

@@ -1,0 +1,105 @@
+---
+layout: section-main
+prism: true
+katex: true
+toc: true
+---
+{# pre-work #}
+  {# store author[*] into variable site_authors #}
+  {% set site_authors = [] %}
+  {% for author in collections.author %}
+      {% set site_authors = (site_authors.push([author.data.name,author.data.slug,author.data.avatar,author.data.bio,
+                                                author.data.more.website,author.data.more.github,author.data.more.twitter,author.data.more.location
+                                                ]), site_authors) %}
+  {% endfor %}
+
+  {# store tag[name,slug] into variable site_tags #}
+  {% set site_tags = [] %}
+  {% for tag in collections.tag %}
+      {% set site_tags = (site_tags.push([tag.data.name,tag.data.slug]), site_tags) %}
+  {% endfor %}
+
+<article class="single-article">
+  {# featured image #}
+  {% if settings.post.showFeatureImage and image %}
+  <div class="box is-paddingless is-shadowless is-full-mobile is-centered">
+      <section class="featured-image">
+          <div class="featured-image" style="background-image:url({{ image }});">
+              {# featured post label #}
+              {% if isFeatured %}
+              <span class="featured-label red large is-montserrat" title="Featured Post"><i class="iconfont icon-star"></i> {{ settings.post.featureText}} </span>
+              {% endif %}
+          </div>
+      </section>
+  {% else %}
+  <div class="box is-paddingless is-shadowless is-full-mobile is-centered">
+  <div class="spacing-25 is-hidden-mobile"></div>
+  {% endif %}
+
+      <section class="post-wrap">
+          {# meta #}
+          <div class="has-2-ends is-montserrat is-uppercase is-size-6">
+              <div class="end meta-text date">{{ date | readableDate}}</div>
+              {# <div class="end meta-text reading_time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</div> #}
+          </div>
+
+          {# title #}
+          <h1 class="title post-title">{{ title | title }}</h1>
+
+          {# tags #}
+            {# tagList (depend on includes() function in .eleventy.js) #}
+            {% set tagList = [] %}
+            {% for name,slug in site_tags %}
+              {% if tags | includes(slug) %}
+                  {% set tagList = (tagList.push([name,slug]), tagList) %}
+              {% endif %}
+            {% endfor %}
+
+            {# tagList (not depend on includes() function) #}
+            {# {% set tagList = [] %}
+            {% for name,slug in site_tags %}
+              {% for t in tags %}
+                {% if slug == t %}
+                  {% set tagList = (tagList.push([name,slug]), tagList) %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %} #}
+
+          {% if tagList | length > 0 %}
+          <div class="buttons tags has-text-weight-semibold">
+              <button class="button is-static is-size-7-mobile" style="padding:0 0.5em;min-width:2.5em" title="View all tags" alt="View all tags">
+                  {% if tagList | length == 1 %}
+                    <i class="iconfont icon-tag"></i>
+                  {% else %}
+                    <i class="iconfont icon-tags"></i>
+                  {% endif %}
+              </button>
+              {% for name,slug in tagList %}
+                <a href="/tag/{{slug}}/" class="button is-size-7-mobile has-text-weight-semibold">{{ name }}</a>
+              {% endfor %}
+          </div>
+          {% endif %}
+
+          {# content #}
+          <div id="content" class="content post-content is-size-6-mobile {% if settings.component.codeLineNumbers %}line-numbers{% endif %}">
+            {{ content | safe }}
+          </div>
+          
+          {# author box #}
+            {# authorList #}
+              {% set authorList = [] %}
+              {% for name,slug,avatar,bio,website,github,twitter,location in site_authors %}
+                {% for a in authors %}
+                  {% if slug == a %}
+                    {% set authorList = (authorList.push([name,slug,avatar,bio,website,github,twitter,location]), authorList) %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+
+          {% if settings.component.authorBox and (authors | length > 0) %}
+            {% include "../partials/card-post-author.njk" %}
+          {% endif %}
+
+      </section>
+  </div>
+</article>

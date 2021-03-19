@@ -2,7 +2,7 @@ backend:
   # Use netlify identity as backend
   # https://www.netlifycms.org/docs/git-gateway-backend/
   name: git-gateway
-  branch: main
+  branch: demo
 
   # use github as backend, can login with github account, but require push access to the repo.
   # ideal for personal or small group site

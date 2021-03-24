@@ -42,4 +42,4 @@ Themes are templates that can be used by a Ghost website in order to change the 
 
 Ghost organization provides a [marketplace](https://marketplace.ghost.org/) for Ghost theme developers to publish their themes. Some of them are free so you can download them and upload the `zip` file to your Ghost website and activate them.
 
-> I have also created a free blogging theme for Ghost, which is also the theme this website is currently using. If you like it, you should go check it out: [The Fizzy Theme](https://fizzy.cc/fizzy-theme/). (please [star](https://github.com/huangyuzhang/Fizzy-Theme) it on GitHub, Thanks! 😄)
+> I have also created a free blogging theme for Ghost, which is also the theme this website is currently using. If you like it, you should go check it out: [The Fizzy Theme](/post/fizzy-theme/). (please [star](https://github.com/huangyuzhang/Fizzy-Theme) it on GitHub, Thanks! 😄)

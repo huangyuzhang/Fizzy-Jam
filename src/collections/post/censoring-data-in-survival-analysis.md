@@ -103,7 +103,7 @@ $$ \frac{h_{i}(t)}{h_{j}(t)} = \frac{h_{0}(t) e^{\eta_{i}}}{h_{0}(t) e^{\eta_{j}
 
 where $i$ and $j$ are any two observations. 
 
-The Cox model is a semi-parametric model which mean it can take both numerical and categorical data. But categorical data requires to be preprocessed with one-hot encoding. For more information on how to use One-Hot encoding, check this post: [Feature Engineering: Label Encoding & One-Hot Encoding](https://fizzy.cc/label-encoding-one-hot-encoding/).
+The Cox model is a semi-parametric model which mean it can take both numerical and categorical data. But categorical data requires to be preprocessed with one-hot encoding. For more information on how to use One-Hot encoding, check this post: [Feature Engineering: Label Encoding & One-Hot Encoding](/post/label-encoding-one-hot-encoding/).
 
 #### Python Example
 

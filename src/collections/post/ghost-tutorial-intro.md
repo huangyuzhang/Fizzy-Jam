@@ -29,7 +29,7 @@ Generally speaking, Ghost is for anyone who loves creating contents. That being 
 The list goes on. Actually everyone could have a website or blog that is independent to any other big commercial platforms. My experience tells me that if your words are spread through others, they will not be the same as you wanted to say.
 
 ## What will I get?
-An example is this website itself, it uses Ghost as the content management system. I have also built the current blogging theme the [Fizzy Theme](https://fizzy.cc/fizzy-theme/) just for it, you can download it for free. If you like it, please star this project on its GitHub repo: [Fizzy-Theme](https://github.com/huangyuzhang/Fizzy-Theme).
+An example is this website itself, it uses Ghost as the content management system. I have also built the current blogging theme the [Fizzy Theme](/post/fizzy-theme/) just for it, you can download it for free. If you like it, please star this project on its GitHub repo: [Fizzy-Theme](https://github.com/huangyuzhang/Fizzy-Theme).
 
 But of course, it is not limited to what this blog has, after this tutorial, you should be able to explore Ghost by yourself with confidence.
 

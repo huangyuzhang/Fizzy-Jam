@@ -40,7 +40,7 @@ toc: true
           {# meta #}
           <div class="has-2-ends is-montserrat is-uppercase is-size-6">
               <div class="end meta-text date">{{ date | readableDate}}</div>
-              {# <div class="end meta-text reading_time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</div> #}
+              <div class="end meta-text reading_time">{{ content | timeToRead ('200 words a minute') }}</div>
           </div>
 
           {# title #}

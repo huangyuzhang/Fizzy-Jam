@@ -12,14 +12,14 @@ It's much more than a starter. 😉
 
 ## Live Demo
 
-* Official: [https://fizzy.cc/](https://fizzy.cc/)
+* Official: [https://fizzy.cc/](https://fizzy.cc/) (haven't powered by FizzyJam yet, please visit demos below)
 * Netlify: [https://fizzy-jam.netlify.app/](https://fizzy-jam.netlify.app/)
 * CloudFlare: [https://fizzy-jam.pages.dev/](https://fizzy-jam.pages.dev/)
 * Vercel: [https://fizzy-jam.vercel.app/](https://fizzy-jam.vercel.app/)
 
 ## Deployment
 ### Online Deployment
-Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following on-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
+Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following one-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Netlify")
 

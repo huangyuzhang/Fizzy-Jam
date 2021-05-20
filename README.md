@@ -244,7 +244,7 @@ See [Contributors][Contributors]
 
 Start to discuss on [GitHub Discussion][GitHub Discussion].
 
-Join the [Telegram Group][Telegram Group] too!
+Join the [Telegram Channel][Telegram Channel] and [Telegram Group][Telegram Group] too!
 
 ## 📍 Roadmap & TODOs
 To know the future planning of this project, please visit our [Roadmap][Roadmap].
@@ -280,5 +280,6 @@ The priority of the list below is based on the number of requests.
 [Contributors]: https://github.com/huangyuzhang/Fizzy-Jam/graphs/contributors
 [Roadmap]: https://github.com/huangyuzhang/Fizzy-Jam/projects/1
 [GitHub Discussion]:https://github.com/huangyuzhang/Fizzy-Jam/discussions
-[Telegram Group]:https://t.me/FizzyJamGroup
+[Telegram Channel]:https://t.me/FizzyJam
+[Telegram Group]:https://t.me/FizzyJamChat
 [search-lunr]:https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr

@@ -19,8 +19,8 @@ It's much more than a starter. 😉
 
 ## 🤔 Philosophy
 
-1. Everything lives in a git repo. This means you can host the site on GitHub, rather than paying monthly fees for web servers and database.
-2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code.
+1. Everything lives in a git repo. This means you can host the site on GitHub, rather than paying monthly fees for web servers and databases.
+2. A user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code.
 3. Decoupled everywhere. Customize the site is fun by adding micro-services.
 
 ## 🍹 Features & Usage
@@ -28,6 +28,7 @@ It's much more than a starter. 😉
 ### LOGO & ICON
 
 LOGO elements will be shown by the following priority:
+
 1. **LOGO**: if the site LOGO is uploaded;
 2. **ICON + Site Name**: if the site ICON is uploaded;
 3. **Site Name**: if site name is defined.
@@ -42,7 +43,7 @@ By default, Eleventy will generate HTML files based on the file structure in the
 
 {% raw %}
 
-However, you may define `permalink` in the frontmatter of each post or in `<collection_name>.json` for all files within the same folder. For example, in this project, posts are stored in `src/collections/post`. So we can define all posts permalink as `"permalink": "post/{{ slug }}/index.html"` by using `post.json` in the same folder.
+However, you may define `permalink` in the front matter of each post or in `<collection_name>.json` for all files within the same folder. For example, in this project, posts are stored in `src/collections/post`. So we can define all posts permalink as `"permalink": "post/{{ slug }}/index.html"` by using `post.json` in the same folder.
 
 {% endraw %}
 
@@ -54,11 +55,12 @@ However, you may define `permalink` in the frontmatter of each post or in `<coll
 * **Single Tag**: Contains the tag meta info and the posts with such tag.
 * **Single Post**: The post page.
 
-
 ### Single Pages
-Page is one type of collections. All pages are stored in the `src/page/` folder. You need to edit the `permalink`s for each page to customize their URL.
+
+Page is one type of collection. All pages are stored in the `src/page/` folder. You need to edit the `permalink`s for each page to customize their URL.
 
 There are several layouts you can choose from:
+
 * `single-page`: the post-like page, e.g. /about/
 * `list-post`: post listing page, e.g. /post/
 * `archive`: post archive page, e.g. /archives/
@@ -101,9 +103,11 @@ Block code highlight is powered by Prism.js.
 Manually change site level settings.
 
 #### Navigation
+
 Add or remove items for the navbar or the footer area (coming soon!).
 
 #### Settings
+
 * **Site Meta**: Site Name, LOGO, ICON, description, footer info ...
 * **Post Listing**: showFeatureImage, featureText
 * **SEO Settings**: SEO title, Keywords
@@ -111,9 +115,11 @@ Add or remove items for the navbar or the footer area (coming soon!).
 * **Components**: author box, code line numbers ...
 
 ### Comment System
+
 TODO
 
 ### Other Features
+
 1. Open external links in new pages.
 2. Image Lazy Loading
 
@@ -165,10 +171,11 @@ There are 5 collections by default: `post`, `tag`, `author`, `page` and `setting
 `tag` and `author` are relation collection used in post collection. So you need to first add new tags and authors before selecting them while editing a post.
 
 #### Collection Slug
+
 Slugs are used in routes, URLs and treated as the "id"s of entries. 
 For example, the slug for a tag will be used in relation id stored in post files. It will be used also in generating the tag page: {% raw %}`/tag/{{slug}}`{%  endraw %}.
 
-A slug only allows to contain "0~9", "a~z", "-", "\_" and "." (not start or end with "-", "_" and ".").
+A slug only allows to contain "0\~9", "a\~z", "-", "\_" and "." (not start or end with "-", "\_" and ".").
 
 ## Eleventy Configuration
 
@@ -195,6 +202,7 @@ Several JavaScript functions are introduced, so they can be used in templates.
 * Eleventy (static-site generator, Nunjucks as the template engine)
 * Bulma (CSS Framework)
 * Components
+
   * Swiper Slider(TODO)
   * KaTex (LaTeX support)
   * Prism.js (Code Highlight)
@@ -206,6 +214,7 @@ Several JavaScript functions are introduced, so they can be used in templates.
 
 * Duplicate entries may cause problems when generating static pages.
 * Delete tags(collection item) or change tag slugs will not remove the corresponding tag items in post files(.md).
+
   > Removed tags are not displaying in front-end, so users won't see those tags.
   > However, still recommend not to change the tag slugs after creation.
 
@@ -215,10 +224,11 @@ See [CHANGELOG.md](./CHANGELOG.md)
 
 ## 🍻 Contributors
 
-See [Contributors][contributors]
+See [Contributors](https://github.com/huangyuzhang/Fizzy-Jam/graphs/contributors)
 
 ## 📍 Roadmap
-To know the future planning of this project, please visit our [Roadmap][roadmap].
+
+To know the future planning of this project, please visit our [Roadmap](https://github.com/huangyuzhang/Fizzy-Jam/projects/3).
 
 ## Resources
 
@@ -241,20 +251,14 @@ To know the future planning of this project, please visit our [Roadmap][roadmap]
 
 The priority of the list below is based on the number of requests.
 
-* [x] Minify Assets (HTML & CSS)
-* [x] 404 Page
-* [ ] Pagination
-* [ ] Comment System
-* [ ] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
-* [ ] Search
-  * [Adding Search to your Eleventy Static Site with Lunr](https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr)
-* [ ] i18n
-* [ ] Night Switch
-* [ ] Markdown Footnotes
+* Minify Assets (HTML & CSS)
+* 404 Page
+* Pagination
+* Comment System
+* Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
+* Search
 
-[bulma]: https://bulma.io/
-[prismjs]: https://prismjs.com/
-[katex]: https://katex.org/
-[iconfont]:https://www.iconfont.cn
-[contributors]: https://github.com/huangyuzhang/Fizzy-Jam/graphs/contributors
-[roadmap]: https://github.com/huangyuzhang/Fizzy-Jam/projects/3
+  * [Adding Search to your Eleventy Static Site with Lunr](https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr)
+* i18n
+* Night Switch
+* Markdown Footnotes

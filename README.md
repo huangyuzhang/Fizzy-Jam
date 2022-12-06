@@ -64,8 +64,8 @@ Branches:
    npm run build
    ```
 
-| 🔔 To keep your forked/cloned repository up-to-date, you may set this repository as the upstream of your project. |
-|-------------------------------------------------------------------------------------------------------------------|
+🔔 To keep your forked/cloned repository up-to-date, you may set this repository as the upstream of your project. 
+
 
 ## 🍹 Features & Usage
 

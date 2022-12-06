@@ -7,7 +7,7 @@ It's much more than a starter. 😉
 ## 🤔 Philosophy
 
 1. Everything lives in a git repo. This means you can host the site on GitHub, rather than paying monthly fees for web servers and database.
-2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code.
+2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code. (you may also use the CMS offline, then push the static site to Github)
 3. Decoupled everywhere. Customize the site is fun by adding micro-services.
 
 ## Live Demo
@@ -18,17 +18,26 @@ It's much more than a starter. 😉
 * Vercel: [https://fizzy-jam.vercel.app/](https://fizzy-jam.vercel.app/)
 
 ## Deployment
-### Online Deployment
+### Online Deployment for Users
 Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following one-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
+
+Enjoy blogging!
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Netlify")
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to CLoudFlare")
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Vercel")
-### Local Deployment
+### Local Deployment for Developers
+For developers who intent to modify the theme or to contribute to this project, use the following commands:
 
-1. Clone this repository
+Branches:
+* `main`: official branch with latest updates
+* `dev`: the intermediate branch between your modification branch and the `main` branch
+* `local`: uses local backend, so you can test the admin panel without login
+* `demo`: for demo site, can be neglected
+
+1. Clone this repository with all branches
    ```shell
    git clone https://github.com/huangyuzhang/Fizzy-Jam.git
    ```
@@ -40,16 +49,23 @@ Deployment to a serverless platform like Netlify, CloudFlare and Vercel is prett
    ```shell
    npm install
    ```
-4. Switch to local branch
+4. Switch to other branches
    ```shell
    git checkout local
+
+   git checkout dev
    ```
-5. Run locally
+5. Run locally for testing (this will boot up a Browsersync web server to apply changes and refresh automatically)
    ```shell
    npm run local
    ```
+6. Build for production
+   ```shell
+   npm run build
+   ```
 
-> To keep your forked or cloned repository updated, you may set this repository as the upstream of your project.
+| 🔔 To keep your forked/cloned repository up-to-date, you may set this repository as the upstream of your project. |
+|-------------------------------------------------------------------------------------------------------------------|
 
 ## 🍹 Features & Usage
 
@@ -215,9 +231,9 @@ Several JavaScript functions are introduced, so they can be used in templates.
 
 ## Stacks
 
-* Eleventy (static-site generator, Nunjucks as the template engine)
-* Bulma (CSS Framework)
-* Netlify CMS (git-based CMS)
+* Eleventy v1.0.2 (static-site generator, Nunjucks as the template engine)
+* Bulma v0.9.4 (CSS Framework)
+* Netlify CMS v2.10.192 (git-based CMS)
 * Components
   * Swiper Slider(TODO)
   * KaTex (LaTeX support)
@@ -271,10 +287,10 @@ The priority of the list below is based on the number of requests.
 ## 💡 Contributing
 
 1. Fork it (maybe give it a star too? 😉 )
-2. Create your feature branch (`git checkout -b feature-fooBar`)
-3. Commit your changes (`git commit -m 'Add something'`)
-4. Push to the branch to your origin (`git push origin feature-fooBar`)
-5. Create a new Pull Request to `dev` branch here
+2. Create your feature/modification branch (`git checkout -b feature-addSomeFeature`)
+3. Commit your changes (`git commit -m 'Add something cool'`)
+4. Push to the branch to your origin (`git push origin feature-addSomeFeature`)
+5. Create a new Pull Request to `dev` branch on Github !!! NOT to "main" branch
 6. Wait for code review and modify if necessary
 
 [Contributors]: https://github.com/huangyuzhang/Fizzy-Jam/graphs/contributors

@@ -1,5 +1,9 @@
+# Netlify CMS config
+
 backend:
-  # Use netlify identity as backend
+# there are 2 backend options: netlify identify, github
+
+  # Use netlify identity as backend, recommended
   # https://www.netlifycms.org/docs/git-gateway-backend/
   name: git-gateway
   branch: main
@@ -11,7 +15,8 @@ backend:
   # repo: huangyuzhang/fizzy-jam
 
 
-# local backend, run "npx netlify-cms-proxy-server"
+# uncomment to use local backend for testing (/admin)
+# then run `npm run local` instead
 # local_backend: true
 
 media_folder: "src/static/img"

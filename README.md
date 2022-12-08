@@ -4,10 +4,12 @@ Fizzy Jam is an out-of-the-box JAMStack web app practice.
 
 It's much more than a starter. 😉
 
+> If you happen to encounter [the Fizzy Theme][the Fizzy Theme], a legacy project built solely for Ghost or another tweaked version for Gridea, you may find this project more independent in terms of JAMStack.
+
 ## 🤔 Philosophy
 
 1. Everything lives in a git repo. This means you can host the site on GitHub, rather than paying monthly fees for web servers and database.
-2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code. (you may also use the CMS offline, then push the static site to Github)
+2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code. (you may also use the CMS offline, then push the static site to Github manually to activate CI)
 3. Decoupled everywhere. Customize the site is fun by adding micro-services.
 
 ## Live Demo
@@ -87,6 +89,11 @@ By default, Eleventy will generate HTML files based on the file structure in the
 However, you may define `permalink` in the frontmatter of each post or in `<collection_name>.json` for all files within the same folder. For example, in this project, posts are stored in `src/collections/post`. So we can define all posts permalink as `"permalink": "post/{{ slug }}/index.html"` by using `post.json` in the same folder.
 
 > custom: `collections/<collection_name>/<collection_name>.json`
+
+### Homepage
+Between the header section and footer section of the page, the homepage contains a carousel showcase(TODO) at top, following by a list with latest N of posts.
+
+The default number of posts shown on each page is 10, edit "pagination: size:" in `src/index.njk` to change this.
 
 ### Collection Entry Pages
 
@@ -254,13 +261,13 @@ See [CHANGELOG.md](./CHANGELOG.md)
 
 ## 🍻 Contributors
 
-See [Contributors][Contributors]
+A round of applause for all  [Contributors][Contributors]!
 
 ## 📮 Discussion
 
-Start to discuss on [GitHub Discussion][GitHub Discussion].
+Start to discuss on [GitHub Discussions][GitHub Discussions].
 
-Join the [Telegram Channel][Telegram Channel] and [Telegram Group][Telegram Group] too!
+~~Join the [Telegram Channel][Telegram Channel] and [Telegram Group][Telegram Group] too!~~ (no longer maintained, please use github discussions instead)
 
 ## 📍 Roadmap & TODOs
 To know the future planning of this project, please visit our [Roadmap][Roadmap].
@@ -268,7 +275,8 @@ The priority of the list below is based on the number of requests.
 
 * [x] Minify Assets (HTML & CSS)
 * [x] 404 Page
-* [ ] Pagination
+* [x] Homepage Pagination
+* [ ] Homepage Showcase
 * [ ] Comment System
 * [ ] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
 * [ ] Search
@@ -293,9 +301,10 @@ The priority of the list below is based on the number of requests.
 5. Create a new Pull Request to `dev` branch on Github !!! NOT to "main" branch
 6. Wait for code review and modify if necessary
 
+[the Fizzy Theme]: https://github.com/huangyuzhang/Fizzy-Theme/
 [Contributors]: https://github.com/huangyuzhang/Fizzy-Jam/graphs/contributors
 [Roadmap]: https://github.com/huangyuzhang/Fizzy-Jam/projects/1
-[GitHub Discussion]:https://github.com/huangyuzhang/Fizzy-Jam/discussions
+[GitHub Discussions]:https://github.com/huangyuzhang/Fizzy-Jam/discussions
 [Telegram Channel]:https://t.me/FizzyJam
 [Telegram Group]:https://t.me/FizzyJamChat
 [search-lunr]:https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr

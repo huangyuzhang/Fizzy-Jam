@@ -1,0 +1,163 @@
+{# post loop used in post-list, single-author, single-tag #}
+
+{# pre-work #}
+{# store author[name,slug,avatar] into variable site_authors #}
+{% set site_authors = [] %}
+{% for author in collections.author %}
+  {% set site_authors = (site_authors.push([author.data.name, author.data.slug, author.data.avatar]), site_authors) %}
+{% endfor %}
+
+{# store tag[name,slug] into variable site_tags #}
+{% set site_tags = [] %}
+{% for tag in collections.tag %}
+  {% set site_tags = (site_tags.push([tag.data.name, tag.data.slug]), site_tags) %}
+{% endfor %}
+
+{# iterate post in collection:post #}
+{% for post in posts | reverse %}
+  {# filter posts for single-tag & single-author #}
+  {% if post.data.tags | includes(slug)or post.data.authors | includes(slug)or slug is undefined %}
+    {# post entry #}
+    <article class="box is-paddingless is-clipped has-shadow-lift margin-bottom-25 can-scale">
+      <div class="columns post-card is-marginless">
+
+        {# featured image #}
+        {% if settings.post.showFeatureImage and post.data.image %}
+          <a class="column is-hidden-mobile is-paddingless" href="{{ post.url | url }}" alt="{{ post.data.title }}" title="{{ post.data.title }}">
+            <div class="featured-image" style="background-image: url('{{ post.data.image }}')"></div>
+          </a>
+          <a class="column is-hidden-tablet" href="{{ post.url | url }}" alt="{{ post.data.title }}" title="{{ post.data.title }}">
+            <div class="featured-image" style="background-image: url('{{ post.data.image }}')"></div>
+          </a>
+
+          {# post info #}
+          <div class="column is-7 is-paddingless">
+          {% else %}
+            <div class="column is-12 is-paddingless">
+            {% endif %}
+
+            {# post-info start #}
+            <div class="post-info">
+              {# is featured post #}
+              {% if post.data.isFeatured %}
+                {% if settings.post.showFeatureImage and post.data.image %}
+                  <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label has-img" title="{{ settings.post.featureText }}">
+                    <i class="iconfont icon-star"></i>
+                    <span>{{ settings.post.featureText }}</span></span>
+                {% else %}
+                  <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label no-img" title="{{ settings.post.featureText }}">
+                    <i class="iconfont icon-star"></i>
+                    <span>{{ settings.post.featureText }}</span></span>
+                {% endif %}
+
+              {% else %}
+                {# nothing #}
+              {% endif %}
+
+              {# meta #}
+
+              {# primary tag #}
+              {% set primary_tag_name = "" %}
+              {% set primary_tag_slug = "" %}
+
+              {% for name, slug in site_tags %}
+                {% for pTag in post.data.tags %}
+                  {% if slug == pTag %}
+                    {# the first(i.e. [0]) tag is "post", set in `src/collections/post/post.json` #}
+                    {% set primary_tag_name = name %}
+                    {% set primary_tag_slug = slug %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+
+              <div class="level is-mobile is-uppercase is-margin-bottom-1">
+                <div class="level-left">
+                  {# primary tag #}
+                  {% if primary_tag_slug | length > 0 %}
+                    <div class="level-item">
+                      <div class="buttons are-small">
+                        <a href="/tag/{{primary_tag_slug}}/" class="button is-light has-text-weight-semibold">{{ primary_tag_name }}</a>
+                      </div>
+                    </div>
+                  {% endif %}
+
+                  {# date #}
+                  <div class="level-item is-size-7 meta-text date">
+                    {{ post.data.date | readableDate }}
+                  </div>
+                </div>
+                <div class="level-right">
+                  <div class="level-item is-size-7 meta-text date">
+                    {{ post.templateContent | timeToRead ('225 words a minute') }}</div>
+                </div>
+              </div>
+
+              {# heading & summary #}
+              <a href="{{ post.url | url }}" class="has-text-black">
+                <h1 class="title is-3 is-size-5-mobile is-margin-bottom-1">{{ post.data.title }}</h1>
+              </a>
+              {% if settings.post.showFeatureImage and post.data.image %}
+                <p class="is-hidden-mobile limit-text-line-3" style="margin-bottom:1.5rem;">
+                {% else %}
+                  <p class="is-size-6-mobile is-margin-bottom-1 limit-text-line-3" style="margin-bottom:1.5rem">
+                  {% endif %}
+                  {{ post.data.description }}
+                </p>
+
+                {# primary author #}
+                {% set primary_author_name = "" %}
+                {% set primary_author_slug = "" %}
+                {% set primary_author_avatar = "" %}
+
+                {% for name, slug,
+                avatar in site_authors %}
+                  {% if slug == post
+                    .data
+                    .authors[0] %}
+                    {% set primary_author_name = name %}
+                    {% set primary_author_slug = slug %}
+                    {% set primary_author_avatar = avatar %}
+                  {% endif %}
+                {% endfor %}
+
+                {# author start #}
+                {% if post.data.authors %}
+                  <div class="media is-hidden-mobile" style="margin-top:1.5rem">
+                    <div class="media-left">
+                      <div class="columns is-vcentered">
+
+                        {# author avatar #}
+                        {% if primary_author_avatar %}
+                          <div class="column is-narrow is-rpaddingless">
+                            <figure class="image is-32x32">
+                              <a href="/author/{{primary_author_slug}}/" class="has-text-grey-dark is-font-weight-600">
+                                <img class="image-squared round-border-6" src="{{ primary_author_avatar }}" alt="{{ primary_author_name }}" title="{{ primary_author_name }}">
+                              </a>
+                            </figure>
+                          </div>
+                        {% endif %}
+
+                        {# author name #}
+                        <div class="column is-narrow has-text-weight-bold">
+                          <a href="/author/{{primary_author_slug}}/" class="has-text-grey-dark is-font-weight-600">
+                            {{ primary_author_name }}
+                          </a>
+                        </div>
+                        {# other authors #}
+                        {% if post.data.authors | length > 1 %}
+                          <div class="has-text-grey"> &nbsp;and others</div>
+                        {% endif %}
+
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+                {# author end #}
+
+              </div>
+              <!-- post-info end -->
+
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}

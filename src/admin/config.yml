@@ -17,7 +17,7 @@ backend:
 
 # uncomment to use local backend for testing (/admin)
 # then run `npm run local` instead
-# local_backend: true
+local_backend: true
 
 media_folder: "src/static/img"
 public_folder: "/static/img"

@@ -1,0 +1,28 @@
+<div class="buttons has-addons is-centered" aria-label="pagination" role="navigation">
+    {# first page #}
+    {% if page.url != pagination.href.first %}
+    <a href="{{ pagination.href.first }}" class="button" title="First Page"">«</a>
+    {% endif %}
+
+    {# previous page #}
+    {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="button" title="Previous Page">‹</a>
+    {% endif %}
+
+    {# page / pages #}
+    <span class="button is-static">
+    {%- for pageEntry in pagination.pages %}{% if page.url == pagination.hrefs[ loop.index0 ] %} {{ loop.index }} {% endif %}{%- endfor %}
+    / 
+    {{ pagination.pages | length }}
+    </span>
+
+    {# next page #}
+    {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="button" title="Next Page">›</a>
+    {% endif %}
+    
+    {# last page #}
+    {% if page.url != pagination.href.last %}
+    <a href="{{ pagination.href.last }}" class="button" title="Last Page">»</a>
+    {% endif %}
+</div>

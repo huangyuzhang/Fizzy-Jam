@@ -4,31 +4,42 @@ Fizzy Jam is an out-of-the-box JAMStack web app practice.
 
 It's much more than a starter. 😉
 
+> If you happen to encounter [the Fizzy Theme][the Fizzy Theme], a legacy project built solely for Ghost or another tweaked version for Gridea, you may find this project more independent in terms of JAMStack.
+
 ## 🤔 Philosophy
 
 1. Everything lives in a git repo. This means you can host the site on GitHub, rather than paying monthly fees for web servers and database.
-2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code.
+2. An user-friendly yet pre-configured CMS. This allows you to focus on creating wonderful content, not the architecture or code. (you may also use the CMS offline, then push the static site to Github manually to activate CI)
 3. Decoupled everywhere. Customize the site is fun by adding micro-services.
 
 ## Live Demo
 
-* Official: [https://fizzy.cc/](https://fizzy.cc/)
+* Official: [https://fizzy.cc/](https://fizzy.cc/) (haven't powered by FizzyJam yet, please visit demos below)
 * Netlify: [https://fizzy-jam.netlify.app/](https://fizzy-jam.netlify.app/)
 * CloudFlare: [https://fizzy-jam.pages.dev/](https://fizzy-jam.pages.dev/)
 * Vercel: [https://fizzy-jam.vercel.app/](https://fizzy-jam.vercel.app/)
 
 ## Deployment
-### Online Deployment
-Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following on-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
+### Online Deployment for Users
+Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following one-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
+
+Enjoy blogging!
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Netlify")
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to CLoudFlare")
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/huangyuzhang/Fizzy-Jam/ "Deploy to Vercel")
-### Local Deployment
+### Local Deployment for Developers
+For developers who intent to modify the theme or to contribute to this project, use the following commands:
 
-1. Clone this repository
+Branches:
+* `main`: official branch with latest updates
+* `dev`: the intermediate branch between your modification branch and the `main` branch
+* `local`: uses local backend, so you can test the admin panel without login
+* `demo`: for demo site, can be neglected
+
+1. Clone this repository with all branches
    ```shell
    git clone https://github.com/huangyuzhang/Fizzy-Jam.git
    ```
@@ -40,16 +51,23 @@ Deployment to a serverless platform like Netlify, CloudFlare and Vercel is prett
    ```shell
    npm install
    ```
-4. Switch to local branch
+4. Switch to other branches
    ```shell
    git checkout local
+
+   git checkout dev
    ```
-5. Run locally
+5. Run locally for testing (this will boot up a Browsersync web server to apply changes and refresh automatically)
    ```shell
    npm run local
    ```
+6. Build for production
+   ```shell
+   npm run build
+   ```
 
-> To keep your forked or cloned repository updated, you may set this repository as the upstream of your project.
+🔔 To keep your forked/cloned repository up-to-date, you may set this repository as the upstream of your project. 
+
 
 ## 🍹 Features & Usage
 
@@ -71,6 +89,11 @@ By default, Eleventy will generate HTML files based on the file structure in the
 However, you may define `permalink` in the frontmatter of each post or in `<collection_name>.json` for all files within the same folder. For example, in this project, posts are stored in `src/collections/post`. So we can define all posts permalink as `"permalink": "post/{{ slug }}/index.html"` by using `post.json` in the same folder.
 
 > custom: `collections/<collection_name>/<collection_name>.json`
+
+### Homepage
+Between the header section and footer section of the page, the homepage contains a carousel showcase(TODO) at top, following by a list with latest N of posts.
+
+The default number of posts shown on each page is 10, edit "pagination: size:" in `src/index.njk` to change this.
 
 ### Collection Entry Pages
 
@@ -215,9 +238,9 @@ Several JavaScript functions are introduced, so they can be used in templates.
 
 ## Stacks
 
-* Eleventy (static-site generator, Nunjucks as the template engine)
-* Bulma (CSS Framework)
-* Netlify CMS (git-based CMS)
+* Eleventy v1.0.2 (static-site generator, Nunjucks as the template engine)
+* Bulma v0.9.4 (CSS Framework)
+* Netlify CMS v2.10.192 (git-based CMS)
 * Components
   * Swiper Slider(TODO)
   * KaTex (LaTeX support)
@@ -238,13 +261,13 @@ See [CHANGELOG.md](./CHANGELOG.md)
 
 ## 🍻 Contributors
 
-See [Contributors][Contributors]
+A round of applause for all  [Contributors][Contributors]!
 
 ## 📮 Discussion
 
-Start to discuss on [GitHub Discussion][GitHub Discussion].
+Start to discuss on [GitHub Discussions][GitHub Discussions].
 
-Join the [Telegram Group][Telegram Group] too!
+~~Join the [Telegram Channel][Telegram Channel] and [Telegram Group][Telegram Group] too!~~ (no longer maintained, please use github discussions instead)
 
 ## 📍 Roadmap & TODOs
 To know the future planning of this project, please visit our [Roadmap][Roadmap].
@@ -252,7 +275,8 @@ The priority of the list below is based on the number of requests.
 
 * [x] Minify Assets (HTML & CSS)
 * [x] 404 Page
-* [ ] Pagination
+* [x] Homepage Pagination
+* [ ] Homepage Showcase
 * [ ] Comment System
 * [ ] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
 * [ ] Search
@@ -271,14 +295,16 @@ The priority of the list below is based on the number of requests.
 ## 💡 Contributing
 
 1. Fork it (maybe give it a star too? 😉 )
-2. Create your feature branch (`git checkout -b feature-fooBar`)
-3. Commit your changes (`git commit -m 'Add something'`)
-4. Push to the branch to your origin (`git push origin feature-fooBar`)
-5. Create a new Pull Request to `dev` branch here
+2. Create your feature/modification branch (`git checkout -b feature-addSomeFeature`)
+3. Commit your changes (`git commit -m 'Add something cool'`)
+4. Push to the branch to your origin (`git push origin feature-addSomeFeature`)
+5. Create a new Pull Request to `dev` branch on Github !!! NOT to "main" branch
 6. Wait for code review and modify if necessary
 
+[the Fizzy Theme]: https://github.com/huangyuzhang/Fizzy-Theme/
 [Contributors]: https://github.com/huangyuzhang/Fizzy-Jam/graphs/contributors
 [Roadmap]: https://github.com/huangyuzhang/Fizzy-Jam/projects/1
-[GitHub Discussion]:https://github.com/huangyuzhang/Fizzy-Jam/discussions
-[Telegram Group]:https://t.me/FizzyJamGroup
+[GitHub Discussions]:https://github.com/huangyuzhang/Fizzy-Jam/discussions
+[Telegram Channel]:https://t.me/FizzyJam
+[Telegram Group]:https://t.me/FizzyJamChat
 [search-lunr]:https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr

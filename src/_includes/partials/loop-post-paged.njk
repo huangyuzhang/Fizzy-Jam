@@ -14,7 +14,7 @@
 {% endfor %}
 
 {# iterate post in collection:post #}
-{% for post in collections.post | reverse %}
+{% for post in posts | reverse %}
   {# filter posts for single-tag & single-author #}
   {% if post.data.tags | includes(slug)or post.data.authors | includes(slug)or slug is undefined %}
     {# post entry #}

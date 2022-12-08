@@ -7,7 +7,7 @@ authors:
 tags:
   - data
   - doc
-image: https://octodex.github.com/images/minion.png
+image: /static/img/minion.png
 isFeatured: true
 description: Use this post to see all markdown render styles by this theme.
   Organically grow the holistic world view of disruptive innovation via
@@ -121,4 +121,4 @@ console.log(foo(5));
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png "This is a minion")
+![Minion](/static/img/minion.png "This is a minion")

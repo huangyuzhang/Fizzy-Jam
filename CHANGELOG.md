@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v0.1.3
+* added pagination to the post list part in single tag page
+* updated global custom data: currentYear (deprecated js in `src/_includes/layout/default.njk`)
+* updated title: append a section with SEO title
+* added pagination to post list page
+* updated site settings in netlify cms
+* reversed post list in homepage
 ## v0.1.2
 * added homepage pagination
 ## v0.1.1

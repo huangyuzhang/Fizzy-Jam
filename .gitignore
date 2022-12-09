@@ -9,3 +9,4 @@ package-lock.json
 yarn.lock
 .env
 .lazyimages.json
+src/collections/post/demo-post*

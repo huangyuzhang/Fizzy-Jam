@@ -13,6 +13,8 @@ backend:
   # https://www.netlifycms.org/docs/github-backend/
   # name: github
   # repo: huangyuzhang/fizzy-jam
+  # branch: main
+  # base_url: https://<yoursite>
 
 
 # uncomment to use local backend for testing (/admin)
@@ -255,6 +257,7 @@ collections:
           - label: "Footer Items"
             name: "footerItems"
             widget: "list"
+            summary: "{{fields.text}}: {{fields.url}}"
             allow_add: false
             collapsed: true
             fields:
@@ -282,16 +285,16 @@ collections:
             name: "meta"
             allow_add: false
             widget: "object"
-            summary: "{{fields.name}} - {{fields.url}}"
+            summary: "Site Name: {{fields.name}} {{fields.url}}"
             delete: false
             collapsed: true
             fields:
-              - { label: Site Name, name: name, widget: string, required: false }
-              - { label: Site URL, name: url, widget: string, required: false }
+              - { label: Site Name, name: name, widget: string, required: true }
+              - { label: Site URL, name: url, widget: string, required: false, hint: 'default: /'}
               - { label: LOGO, name: logo, widget: image, allow_multiple: false, required: false}
               - { label: Icon, name: icon, widget: image, allow_multiple: false, required: false}
-              - { label: Description, name: description, widget: markdown, hint: Support markdown, required: false}
-              - { label: Footer Info, name: footerInfo, widget: markdown, hint: Support markdown, required: false}
+              - { label: Description, name: description, widget: markdown, hint: 'Support markdown', required: false}
+              - { label: Footer Info, name: footerInfo, widget: markdown, hint: 'Support markdown', required: false}
           # Post Listing Settings
           - label: "Post Listing"
             name: "post"
@@ -308,7 +311,7 @@ collections:
             name: "seo"
             allow_add: false
             widget: "object"
-            summary: "{{fields.title}} - {{fields.keywords}}"
+            summary: "SEO title: {{fields.title}} | Keywords: {{fields.keywords}}"
             delete: false
             collapsed: true
             fields:
@@ -319,7 +322,7 @@ collections:
             name: "appearance"
             allow_add: false
             widget: "object"
-            summary: "{{fields.title}} - {{fields.keywords}}"
+            summary: "Main Color: {{fields.mainColor}}"
             delete: false
             collapsed: true
             fields:
@@ -330,7 +333,7 @@ collections:
             name: "component"
             allow_add: false
             widget: "object"
-            summary: "{{fields.title}} - {{fields.keywords}}"
+            summary: "Author Box: {{fields.authorBox}} | Code Line Numbers: {{fields.codeLineNumbers}}"
             delete: false
             collapsed: true
             fields:

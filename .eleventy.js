@@ -9,19 +9,19 @@ module.exports = function (eleventyConfig) {
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);
 
-  // Merge data instead of overriding
+  // instead of overriding, merge data cascade (e.g. frontmatter) between templates & files (doc: https://www.11ty.dev/docs/data-deep-merge/)
   eleventyConfig.setDataDeepMerge(true);
 
   // 404 page sync when eleventy --serve.
   // https://www.11ty.dev/docs/quicktips/not-found/
 
-  // Current Year (Coming soon in Eleventy v1.0.0, doc: https://www.11ty.dev/docs/data-global-custom/)
-  // eleventyConfig.addGlobalData(
-  //   "currentYear",
-  //   async () => {
-  //     return (new Date()).getFullYear();
-  //   }
-  // );
+  // Current Year (global custom data, doc: https://www.11ty.dev/docs/data-global-custom/)
+  eleventyConfig.addGlobalData(
+    "currentYear",
+    async () => {
+      return (new Date()).getFullYear();
+    }
+  );
 
   // human readable date
   eleventyConfig.addFilter("readableDate", (dateObj) => {
@@ -146,5 +146,8 @@ module.exports = function (eleventyConfig) {
 
     // Let Eleventy transform HTML files as nunjucks, so we can use .html instead of .njk
     htmlTemplateEngine: "njk",
+    
+    // use njk as the default template engine for .md files
+    markdownTemplateEngine: "njk"
   };
 };

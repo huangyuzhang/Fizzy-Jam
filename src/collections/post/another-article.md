@@ -1,12 +1,13 @@
 ---
 title: This is another Article
 slug: another-article
-description: This is the desc of the post.
 date: 2021-03-09
 authors:
   - fizzy
 tags:
   - data-visualization
+  - doc
+description: This is the desc of the post.
 ---
 ## Title Heading2
 

@@ -1,6 +1,6 @@
 ---js
 {
-  currentYear: function() {
+  deprecated_currentYear: function() {
     return (new Date()).getFullYear();
   }
 }
@@ -14,7 +14,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>{% if code %}{{code}}&nbsp;-&nbsp;{% endif %}{% if seoTitle %}{{ seoTitle }}{% elif title %}{{ title }}{% elif name %}{{ name }}{% endif %}</title>
+    <title>{% if code %}{{code}}&nbsp;-&nbsp;{% endif %}{% if seoTitle %}{{ seoTitle }}{% elif title %}{{ title }}{% elif name %}{{ name }}{% endif %}{% if (page.url != '/' and page.url | substring(0,5) != '/page') and settings.seo.title %} - {{settings.seo.title}}{% endif %}</title>
     {% if description %}<meta name="description" content="{{description}}"/>{% endif %}
 
     {% block head %}{% endblock %}
@@ -35,6 +35,7 @@
 
   </head>
   <body class="has-background-light">
+    
 
     {% include "../partials/header.njk" %}
 

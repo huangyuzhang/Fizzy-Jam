@@ -34,7 +34,7 @@ toc: true
         <div class="featured-image" style="background-image:url({{ image }});">
           {# featured post label #}
           {% if isFeatured %}
-            <span class="featured-label red large is-montserrat" title="Featured Post">
+            <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label primary large is-montserrat" title="Featured Post">
               <i class="iconfont icon-star"></i>
               {{ settings.post.featureText}}
             </span>

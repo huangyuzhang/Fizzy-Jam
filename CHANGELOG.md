@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## untaged changes
+* removed pagination of single tag pages
+* convert collection .json files (author.json, page.json, post.json, tag.json) to .yaml files (author.taml, page.yaml, post.yaml, tag.yaml)
 ## v0.1.3
 * added pagination to the post list part in single tag page
 * updated global custom data: currentYear (deprecated js in `src/_includes/layout/default.njk`)

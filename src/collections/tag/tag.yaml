@@ -1,0 +1,5 @@
+layout: single-tag
+path: tag
+permalink: '/tag/{{ slug }}/{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1 }}{% endif %}/index.html'
+tags:
+  - tag

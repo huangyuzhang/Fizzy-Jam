@@ -1,8 +1,0 @@
-{
-    "layout": "single-post",
-    "path": "post",
-    "permalink": "/post/{{ slug }}/index.html",
-    "tags": [
-        "post"
-    ]
-}

@@ -1,8 +1,0 @@
-{
-    "layout": "single-page",
-    "path": "page",
-    "permalink": "/{{ path }}/",
-    "tags": [
-        "page"
-    ]
-}

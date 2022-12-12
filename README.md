@@ -179,16 +179,16 @@ TODO
    ├─ 📂 collections       # folder collections
    │  ├─ 📂 author
    │  │  ├─ 📜 *.md        # author entries
-   │  │  └─ 📜 author.json # default settings for all authors (layout, path, permalink, tags) doc: https://www.11ty.dev/docs/data-template-dir/
+   │  │  └─ 📜 author.yaml # default settings for all authors (layout, path, permalink, tags) doc: https://www.11ty.dev/docs/data-template-dir/
    │  ├─ 📂 page
    │  │  ├─ 📜 *.md        # page entries
-   │  │  └─ 📜 page.json   # default settings for all pages (layout, path, permalink, tags)
+   │  │  └─ 📜 page.yaml   # default settings for all pages (layout, path, permalink, tags)
    │  ├─ 📂 post
    │  │  ├─ 📜 *.md        # post entries
-   │  │  └─ 📜 post.json   # default settings for all posts (layout, path, permalink, tags)
+   │  │  └─ 📜 post.yaml   # default settings for all posts (layout, path, permalink, tags)
    │  └─ 📂 tag
    │     ├─ 📜 *.md        # tag entries
-   │     └─ 📜 tag.json    # default settings for all tags (layout, path, permalink, tags)
+   │     └─ 📜 tag.yaml    # default settings for all tags (layout, path, permalink, tags)
    ├─ 📂 static            # static files
    │  ├─ 📂 css
    │  ├─ 📂 fonts

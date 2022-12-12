@@ -1,0 +1,5 @@
+layout: single-author
+path: author
+permalink: '/author/{{ slug }}/index.html'
+tags:
+  - author

@@ -41,11 +41,11 @@
               {# is featured post #}
               {% if post.data.isFeatured %}
                 {% if settings.post.showFeatureImage and post.data.image %}
-                  <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label has-img" title="{{ settings.post.featureText }}">
+                  <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label primary has-img" title="{{ settings.post.featureText }}">
                     <i class="iconfont icon-star"></i>
                     <span>{{ settings.post.featureText }}</span></span>
                 {% else %}
-                  <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label no-img" title="{{ settings.post.featureText }}">
+                  <span style="background-color:{{settings.appearance.mainColor}};" class="featured-label primary no-img" title="{{ settings.post.featureText }}">
                     <i class="iconfont icon-star"></i>
                     <span>{{ settings.post.featureText }}</span></span>
                 {% endif %}

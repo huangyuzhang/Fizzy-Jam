@@ -25,18 +25,19 @@
 
 /* default style for post content */
 .single-article .post-wrap {
-  max-width: 760px;
+  	max-width: 760px;
+  	margin: auto !important;
 	padding: 48px 15px;
-	font-size:1.2rem;
-	margin: auto!important;
+	line-height: 2;
+	font-size: 1rem;
 }
 /* post heading size */
-.post-wrap h1 {font-size:calc(1.4vw + 1.1rem)!important}
-.post-wrap h2 {font-size:calc(1.0vw + 1.0rem)!important; padding-bottom:.3em; border-bottom:1px solid #eaecef;}
+.post-wrap h1 {font-size:calc(1.2vw + 1.0rem)!important}
+.post-wrap h2 {font-size:calc(1.0vw + 0.9rem)!important; padding-bottom:.3em; border-bottom:1px solid #eee;}
 .post-wrap h3 {font-size:calc(0.8vw + 0.85rem)!important}
 .post-wrap h4 {font-size:calc(0.7vw + 0.8rem)!important}
-.post-wrap h5 {font-size:calc(0.65vw + 0.7rem)!important}
-.post-wrap h6 {font-size:calc(0.55vw + 0.6rem)!important}
+.post-wrap h5 {font-size:calc(0.65vw + 0.75rem)!important}
+.post-wrap h6 {font-size:calc(0.55vw + 0.7rem)!important}
 
 .post-wrap .post-title {
 	margin: 1.5rem 0 2rem 0 !important;

@@ -1,6 +1,6 @@
 # Fizzy Jam
 
-Fizzy Jam is an out-of-the-box JAMStack web app practice.
+Fizzy Jam is an out-of-the-box jamstack web app practice.
 
 It's much more than a starter. 😉
 
@@ -14,13 +14,12 @@ It's much more than a starter. 😉
 
 ## Live Demo
 
-* Official: [https://fizzy.cc/](https://fizzy.cc/) (haven't powered by FizzyJam yet, please visit demos below)
 * Netlify: [https://fizzy-jam.netlify.app/](https://fizzy-jam.netlify.app/)
 * CloudFlare: [https://fizzy-jam.pages.dev/](https://fizzy-jam.pages.dev/)
 * Vercel: [https://fizzy-jam.vercel.app/](https://fizzy-jam.vercel.app/)
 
 ## Deployment
-### Online Deployment for Users
+### One-click Deployment
 Deployment to a serverless platform like Netlify, CloudFlare and Vercel is pretty straightforward. By clicking the following one-click deploy buttons, a cloned repository will be created in your GitHub account and then deployed by the platform.
 
 Enjoy blogging!
@@ -66,10 +65,19 @@ Branches:
    npm run build
    ```
 
-🔔 To keep your forked/cloned repository up-to-date, you may set this repository as the upstream of your project. 
+🔔 To keep your forked/cloned repository up-to-date, you may set this repository as the upstream of your project:
+```shell
+git remote add upstream https://github.com/huangyuzhang/Fizzy-Jam.git
+```
+ref: [Update a Forked GitHub Repository](https://fizzy.cc/update-a-forked-repository/)
 
 
 ## 🍹 Features & Usage
+
+### Backend Configuration
+Skip this section if you prefer to create content locally.
+
+Since Netlify CMS supports two backend options, you may choose one that suits your site, see detail in [`/src/admin/config.yml`](src/admin/config.yml).
 
 ### LOGO & ICON
 
@@ -168,13 +176,14 @@ TODO
 
 ```shell
 .
+├─ 📜 package.json         # Project Configuration
 ├─ 📜 .eleventy.js         # Eleventy Configuration
 ├─ 📂 _site                # output dir
 └─ 📂 src                  # input dir
    ├─ 📂 _data             # global data files (.yaml)
    ├─ 📂 _includes         # templates
    │  ├─ 📂 layouts        # page layouts (.njk)
-   │  └─ 📂 partials       # component parts (.njk)
+   │  └─ 📂 partials       # reusable component parts (.njk)
    ├─ 📂 admin             # Netlify CMS admin & config.yml
    ├─ 📂 collections       # folder collections
    │  ├─ 📂 author
@@ -194,6 +203,7 @@ TODO
    │  ├─ 📂 fonts
    │  ├─ 📂 img
    │  └─ 📂 js
+   ├─ 📜 404.njk           # 404 template
    └─ 📜 index.njk         # Homepage
 ```
 
@@ -261,13 +271,11 @@ See [CHANGELOG.md](./CHANGELOG.md)
 
 ## 🍻 Contributors
 
-A round of applause for all  [Contributors][Contributors]!
+A round of applause for all [Contributors][Contributors]!
 
 ## 📮 Discussion
 
 Start to discuss on [GitHub Discussions][GitHub Discussions].
-
-~~Join the [Telegram Channel][Telegram Channel] and [Telegram Group][Telegram Group] too!~~ (no longer maintained, please use github discussions instead)
 
 ## 📍 Roadmap & TODOs
 To know the future planning of this project, please visit our [Roadmap][Roadmap].
@@ -282,6 +290,7 @@ The priority of the list below is based on the number of requests.
 * [ ] Search
   * [Adding Search to your Eleventy Static Site with Lunr][search-lunr]
 * [ ] i18n
+  * [i18n by eleventy](https://www.11ty.dev/docs/plugins/i18n/)
 * [ ] Night Switch
 * [ ] Markdown Footnotes
 

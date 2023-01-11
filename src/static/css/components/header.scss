@@ -1,4 +1,8 @@
-/* ====================== header ====================== 2019.04.12 */
+// header
+
+// import _variables
+@use 'variables' as var;
+
 @media screen and (min-width:1024px){
 	.nav-container {
 		margin: 0 auto;
@@ -9,8 +13,8 @@
 	font-weight: 700;
 	font-size: 1.5rem;
 	font-family:
-        // "Montserrat",
-        "Fizzy",
+        "Montserrat",
+        // "Fizzy",
         "Ubuntu",
         'Tahoma'
 				,"Helvetica Neue"
@@ -32,11 +36,13 @@
         ,sans-serif;
 }
 .navbar-brand .navbar-item a {
-	color: var(--text-black);
+	color: var.$text-dark;
 }
-.navbar-brand .navbar-item span {
-	color:var(--main-color);
-}
+
+// deprecated, config in settings.yaml > mainColor
+// .navbar-brand .navbar-item span {
+// 	color: var.$dark-blue;
+// }
 
 .navbar-start {
 	margin: 0 0 0 auto !important;
@@ -53,7 +59,7 @@
 }
 #search-btn:hover{
 	background-color: #f2f2f2;
-	/* color:var(--main-color); */
+	color: var.$main-color;
 }
 #search-form{
 	position: relative;
@@ -63,12 +69,12 @@
 	#search-form{margin-bottom:0!important;}
 }
 #search-input:focus{
-	border-color:var(--main-color);
-    box-shadow: 0 0 0 0.125em var(--shadow);
+	border-color: var.$main-color;
+    box-shadow: 0 0 0 0.125em var.$gray-main;
 }
 #close-btn:hover button{
-	color:var(--main-color);
-	border-color:var(--link-color-hover);
+	color: var.$main-color;
+	border-color: var.$link-color-hover;
 }
 
 // #search-results{

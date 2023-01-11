@@ -363,7 +363,7 @@ div.code-toolbar > .toolbar span:focus {
 	border-radius: 6px;
     background-color: rgba(177,177,177,.1);
 	border-color: #C668B9;
-	// box-shadow: 0 1px 1px var(--shadow);
+	// box-shadow: 0 1px 1px var.$default-gray;
     margin-left: -.5em;
     padding: .75em 1.25em;
 	font-family: inherit;

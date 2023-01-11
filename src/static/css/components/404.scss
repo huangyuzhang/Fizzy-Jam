@@ -1,5 +1,9 @@
 
-/* ====================== error page ====================== 2019.05.10 */
+// error page
+
+// import _variables
+@use 'variables' as var;
+
 .error-wrap {
     margin: 0 auto;
     padding: 80px 30px;

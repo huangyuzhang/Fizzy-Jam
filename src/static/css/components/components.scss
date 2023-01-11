@@ -1,4 +1,8 @@
-/* ====================== components ====================== */
+// components
+
+// import _variables
+@use 'variables' as var;
+
 .featured-label {
     position: absolute;
     color: #fff;

@@ -7,11 +7,6 @@ layout: single-page
 ---
 Hello there!
 
-My name is Yuzhang Huang. You can call me Simon. I am a senior BI & Strategic Anlalyst at an Internet company located in Hangzhou, China.
+I love minimalism, want to be productive focusing only on the important things.
 
-This blog mainly contains some of my notes and meaningful contents.
-
-You can also find me on:
-
-* [𝖦𝗂𝗍𝗁𝗎𝖻](https://github.com/huangyuzhang/)
-* [51热带鱼](https://www.51redaiyu.com/)
+Lorem ipsum dolor sit amet, vix ut case porro facilisis, alia possit neglegentur vis te. Has cu eirmod abhorreant, vel civibus efficiantur cu. Eu summo elitr vix, iusto putant maluisset per ut, ne etiam vivendum adipisci vel. Vis omnis tempor accusam ei, justo perpetua liberavisse cu qui. Saperet aliquando adipiscing ius ne, ne facer euripidis est. Pro mundi nostrum suavitate et.

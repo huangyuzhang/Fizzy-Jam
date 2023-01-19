@@ -105,6 +105,15 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
+git style difference
+
+```diff
+function addTwoNumbers (num1, num2) {
+-  return 1 + 2
++  return num1 + num2
+}
+```
+
 ## Tables
 
 | Option | Description                                                               |
@@ -122,3 +131,13 @@ console.log(foo(5));
 ## Images
 
 ![Minion](/static/img/minion.png "This is a minion")
+
+## Toggle
+
+<details>
+<summary>Content Summary</summary> 
+This is the content.
+<pre>
+	pred content <strong>strong font</strong>。
+<pre>
+</details>

@@ -8,6 +8,7 @@
 * fixed list line-height
 * fixed custom favicon not been displayed
 * fixed SCSS variable use for "\$main-color" and "\$link-color-hover"
+* improved post card hover effect
 ## v0.1.4
 * removed pagination of single tag pages
 * convert collection .json files (author.json, page.json, post.json, tag.json) to .yaml files (author.taml, page.yaml, post.yaml, tag.yaml)

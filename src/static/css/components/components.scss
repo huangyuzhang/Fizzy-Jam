@@ -77,8 +77,8 @@
 	transition: all .3s;
 }
 .can-scale:hover{
-	transform: scale(1.01);
-	transition: all .5s ease;
+	transform: translateY(-4px);
+	transition: all .3s ease;
 }
 .img-bg {
     background-position: center;

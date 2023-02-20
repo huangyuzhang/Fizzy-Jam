@@ -19,6 +19,12 @@
 
     {% block head %}{% endblock %}
 
+    {% if settings.meta.icon %}
+      <link rel="icon" href="{{ settings.meta.icon }}" />
+    {% elif title %}
+      <link rel="icon" href="/favicon.ico" />
+    {% endif %}
+
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css"/>
 
     {% if prism == true %}

@@ -70,7 +70,7 @@
 }
 #search-input:focus{
 	border-color: var.$main-color;
-    box-shadow: 0 0 0 0.125em var.$gray-main;
+    box-shadow: 0 0 0 0.125em var.$gray;
 }
 #close-btn:hover button{
 	color: var.$main-color;
@@ -129,7 +129,7 @@
 }
 
 a.navbar-item:hover,a.navbar-item:focus{
-  color:#C668B9 !important;
+  color: var.$link-color-hover !important;
 }
 
 .site-header {

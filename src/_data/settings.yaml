@@ -10,9 +10,9 @@ post:
 seo:
   title: Fizzy
   keywords: JAMStack, Hobby
-appearance:
-  mainColor: "#C668B9"
-  linkHoverColor: "#C668B9"
+# appearance:
+#   mainColor: "#C668B9"
+#   linkHoverColor: "#C668B9"
 component:
   authorBox: true
   codeLineNumbers: true

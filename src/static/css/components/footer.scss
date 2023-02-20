@@ -1,3 +1,6 @@
+// import _variables
+@use 'variables' as var;
+
 .footer{
 	box-shadow: 0 0px 1px 0 #bbb;
 }
@@ -8,5 +11,5 @@
 
 }
 .declare a:hover {
-	color: #C668B9;
+	color: var.$link-color-hover;
 }

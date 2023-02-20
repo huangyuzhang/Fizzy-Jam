@@ -1,4 +1,8 @@
 /* index: post-card 2019.04.09 */
+
+// import _variables
+@use 'variables' as var;
+
 @media screen and (min-width: 769px){
 	.post-card {
 		min-height:250px;

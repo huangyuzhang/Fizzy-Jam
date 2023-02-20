@@ -316,16 +316,16 @@ collections:
               - { label: "Title", name: "title", widget: "string", required: false }
               - { label: "Keywords", name: "keywords", widget: "string", required: false }
           # Appearance
-          - label: "Appearance"
-            name: "appearance"
-            allow_add: false
-            widget: "object"
-            summary: "Main Color: {{fields.mainColor}}"
-            delete: false
-            collapsed: true
-            fields:
-              - { label: "Main Color", name: "mainColor", widget: "string", default: "#FB3B3B", required: false }
-              # - { label: "Link Hover Color", name: "linkHoverColor", widget: "string", default: "#FF7A7A", required: false }
+          # - label: "Appearance"
+          #   name: "appearance"
+          #   allow_add: false
+          #   widget: "object"
+          #   summary: "Main Color: {{fields.mainColor}}"
+          #   delete: false
+          #   collapsed: true
+          #   fields:
+          #     - { label: "Main Color", name: "mainColor", widget: "string", default: "#FB3B3B", required: false }
+          #     # - { label: "Link Hover Color", name: "linkHoverColor", widget: "string", default: "#FF7A7A", required: false }
           # Components
           - label: "Components"
             name: "component"

@@ -1,5 +1,8 @@
 /* ====================== post: TOC ====================== 2021.03.15 */
 
+// import _variables
+@use 'variables' as var;
+
 #toc {
 	// font-family:'Montserrat', sans-serif;
 	border-radius:3px;
@@ -91,7 +94,7 @@
 // h2 titles
 #toc > ul > li > a:hover,
 #toc > ul > li > a.active{
-  color: #c668b9;
+  color: var.$main-color;
   background-color:rgba(177,177,177,.1);
 }
 // h3 titles

@@ -1,3 +1,6 @@
+// import _variables
+@use 'variables' as var;
+
 *,
 *:before,
 *:after {
@@ -49,7 +52,7 @@ a {
   text-decoration: none;
   transition: all 0.3s;
   &:hover {
-    color: #C668B9;
+    color: var.$link-color-hover;
   }
 }
 body, div, a, p, ul, li, ol, table, tr, td {
@@ -119,6 +122,10 @@ h6, h6 a, .content h6, h6.title,
     min-height: 100vh;
     flex-direction: column;
   }
+}
+
+.main-color{
+  color: var.$main-color;
 }
 
 .meta-text {

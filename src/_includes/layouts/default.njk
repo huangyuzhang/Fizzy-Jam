@@ -14,16 +14,27 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>{% if code %}{{code}}&nbsp;-&nbsp;{% endif %}{% if seoTitle %}{{ seoTitle }}{% elif title %}{{ title }}{% elif name %}{{ name }}{% endif %}{% if (page.url != '/' and page.url | substring(0,5) != '/page') and settings.seo.title %} - {{settings.seo.title}}{% endif %}</title>
-    {% if description %}<meta name="description" content="{{description}}"/>{% endif %}
+    {# title #}
+    <title>
+    {% if code %}{{code}}&nbsp;-&nbsp;{% endif %} {# error page #}
+    {% if seoTitle %}{{ seoTitle }} {# page's seoTile, e.g. topic page #}
+      {% elif title %}{{title}} {# file title, e.g. post.md,page.md > title #}
+      {% elif name %}{{ name }} {# file name, e.g. topic.md,author.md > name #}
+      {% elif settings.meta.name %}{{settings.meta.name}} {# setting > site name #}
+    {% endif %}
+    {% if (page.url != '/' and page.url | substring(0,5) != '/page') and settings.seo.title %} - {{settings.seo.title}}{% endif %} {# append seo.title to pages except homepage #}
+    </title>
+    
+    {# description #}
+    <meta name="description" content="{% if description %}{{description}}{% elif settings.meta.description %}{{settings.meta.description}}{% endif%}"/>
+
+    {# keywords #}
+    {% if settings.seo.keywords %}<meta name="keywords" content="{{settings.seo.keywords}}"/>{% endif%}
 
     {% block head %}{% endblock %}
 
-    {% if settings.meta.icon %}
-      <link rel="icon" href="{{ settings.meta.icon }}" />
-    {% elif title %}
-      <link rel="icon" href="/favicon.ico" />
-    {% endif %}
+    {# icon #}
+    {% if settings.meta.icon %}<link rel="icon" href="{{ settings.meta.icon }}" />{% elif title %}<link rel="icon" href="/favicon.ico" />{% endif %}
 
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css"/>
 

@@ -171,8 +171,7 @@ Add or remove items for the navbar or the footer area (coming soon!).
 #### Settings
 * **Site Meta**: Site Name, LOGO, ICON, description, footer info ...
 * **Post Listing**: showFeatureImage, featureText
-* **SEO Settings**: SEO title, Keywords
-* **Appearance**: main color, link hover color ...
+* **SEO Settings**: Site SEO title, Keywords
 * **Components**: author box, code line numbers ...
 
 ### Comment System

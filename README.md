@@ -77,7 +77,7 @@ ref: [Update a Forked GitHub Repository](https://fizzy.cc/update-a-forked-reposi
 ### Backend Configuration
 Skip this section if you prefer to create content locally.
 
-Since Netlify CMS supports two backend options, you may choose one that suits your site, see detail in [`/src/admin/config.yml`](src/admin/config.yml).
+Since Netlify CMS supports two backend options, you may choose one that suits your site, see detail in [`src/admin/config.yml`](src/admin/config.yml).
 
 ### LOGO & ICON
 
@@ -86,17 +86,27 @@ LOGO elements will be shown by the following priority:
 2. **ICON + Site Name**: if the site ICON is uploaded;
 3. **Site Name**: if site name is defined.
 
-> custom: `_includes/partial/header.njk`
+> customization: `src/_includes/partial/header.njk`
+
+### Coloring
+
+There are 2 main coloring variables used throughout the site (i.e. `main-color` & `link-color-hover`), you can change them that suits your style.
+
+> customization: `src/static/css/components/_variables.scss`
+> ```scss
+> $main-color:#C668B9;
+> $link-color-hover:#538FCD;
+> ```
 
 ### Routing
 
 By default, Eleventy will generate HTML files based on the file structure in the `src` folder. That is, all entries inside `src/collections/post/` folder will be generated to `_site/post/`. So posts can be viewed at `www.yourdomain.com/post/post-slug/index.html`.
 
-> custom: `collections/<collection_name>/files.md`
+> customization: `src/collections/<collection_name>/files.md`
 
 However, you may define `permalink` in the frontmatter of each post or in `<collection_name>.json` for all files within the same folder. For example, in this project, posts are stored in `src/collections/post`. So we can define all posts permalink as `"permalink": "post/{{ slug }}/index.html"` by using `post.json` in the same folder.
 
-> custom: `collections/<collection_name>/<collection_name>.json`
+> customization: `src/collections/<collection_name>/<collection_name>.json`
 
 ### Homepage
 Between the header section and footer section of the page, the homepage contains a carousel showcase(TODO) at top, following by a list with latest N of posts.

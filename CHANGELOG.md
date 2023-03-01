@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## untaged changes
+* added latex use case to post: theme style preview
 ## v0.1.5
 * improved post content spacing
 * improved post title size

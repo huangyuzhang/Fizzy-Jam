@@ -113,7 +113,12 @@ function addTwoNumbers (num1, num2) {
 +  return num1 + num2
 }
 ```
+## Latex
 
+Use `$` and `$$` mark to define Latex equations:
+
+* `$ e = mc $` will be rendered as: $ e = mc $
+* `$$ c = \\pm\\sqrt{a^2 + b^2} $$` will be rendered as: $$ c = \\pm\\sqrt{a^2 + b^2} $$
 ## Tables
 
 | Option | Description                                                               |

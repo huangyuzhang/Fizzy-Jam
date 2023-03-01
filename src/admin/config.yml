@@ -161,6 +161,7 @@ collections:
         default: "single-page"
         hint: "Layouts are stored in `src/_includes/layouts/`."
       - { label: "Description", name: "description", widget: "text", hint: "Used in SEO Description", required: false } # text: multi-line text block
+      - { label: "Table of Content", name: "toc", widget: "boolean", default: false, required: false }
       - { label: "Content", name: "body", widget: "markdown", modes: ["raw","rich_text"], required: false }
 
   # Tags (folder collection)

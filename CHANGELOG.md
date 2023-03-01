@@ -11,6 +11,7 @@
 * improved post card hover effect
 * improved footer spacing
 * improved global title, description and keywords
+* fixed toc not showing on pages
 ## v0.1.4
 * removed pagination of single tag pages
 * convert collection .json files (author.json, page.json, post.json, tag.json) to .yaml files (author.taml, page.yaml, post.yaml, tag.yaml)

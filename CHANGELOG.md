@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## untaged changes
+## v0.1.5
 * improved post content spacing
 * improved post title size
 * fixed scss variable usage

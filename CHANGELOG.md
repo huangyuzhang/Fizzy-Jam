@@ -2,6 +2,7 @@
 
 ## untaged changes
 * added latex use case to post: theme style preview
+* added header/footer option to template:default, in order to hide header/footer sections on certain pages
 ## v0.1.5
 * improved post content spacing
 * improved post title size

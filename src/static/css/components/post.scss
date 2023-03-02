@@ -1,6 +1,6 @@
-/* ====================== post ====================== 2019.04.13 */
+// Post page
 
-// import _variables
+// import _variable
 @use 'variables' as var;
 
 /* remove box border-radius in mobile device 2019.04.11 */
@@ -54,8 +54,9 @@
 
 /* post-content 2019.04.13 */
 .post-wrap .post-content a {
-	color:#000;
+	color:var.$purple-dark;
 	word-break: break-word;
+	white-space: nowrap;
 	border-bottom:1px dashed;
 	transition: all .25s;
 }
@@ -83,23 +84,39 @@
 
 /* hr */
 .post-wrap .post-content hr{background: linear-gradient(90deg, rgba(254, 22, 97, 0.6) 0%, rgba(22, 93, 254, 0.5) 100%)}
+
 /* list */
-.post-wrap .post-content ul,.post-content ol{
-	margin-left: 1.5em;
+
+.post-wrap .post-content ul, .post-wrap .post-content ol{
+	margin-left: 2em;
 }
 // .post-wrap .post-content li+li {
 // 	line-height: 1.4em;
 // }
 
-.post-wrap .post-content  li p {
+.post-wrap .post-content li p {
 	margin-bottom:0;
 }
 /* Nested list */
-.post-wrap .post-content ul ul {
+
+ul ul ol, ul ol ol, ol ul ol, ol ol ol {
+    list-style-type: lower-alpha !important;
+}
+
+ol ol, ul ol {
+    list-style-type: lower-roman !important;
+}
+
+.post-wrap .post-content ul ul, .post-wrap .post-content ul ol, .post-wrap .post-content ol ol, .post-wrap .post-content ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.post-wrap .post-content ul ul, .post-wrap .post-content ul ol{
 	margin-top: 0.25em;
 }
-.post-wrap .post-content ul ul li {
-	line-height: 1.6em;
+.post-wrap .post-content ul ul li,.post-wrap .post-content ul ol li {
+	line-height: 1.75em;
 }
 
 // inline code

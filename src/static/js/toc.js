@@ -97,6 +97,7 @@ var h =
           e.attachEvent("on" + t, e[t + n]))
         : e.addEventListener(t, n, !1));
   }
+  // construct the ul element
   function i(e, t) {
     var n,
       o,
@@ -115,7 +116,7 @@ var h =
             ((a = !0),
             (l +=
               '<li class="' + p.linkClass + " h" + e[r].level + '">'
-              + '<a data-target="' + e[r].id + '" title="' + e[r].name + '">'
+              + '<a data-target="' + e[r].id + '" title="' + e[r].name + '"><span></span>'
               + e[r].name
               + "</a>"
               ),
@@ -176,7 +177,7 @@ var h =
         (r = "target"),
         ((a = c).dataset ? a.dataset[r] : a.getAttribute("data-" + r)) === e)
       ) {
-        (o = c), (l = p.linkActiveClass), f(o, l) || (o.className += " " + l);
+        (o = c), (l = p.linkActiveClass), f(o, l) || (o.className += l);
         var u = y((i = c), v);
         v.scrollTop = u - v.offsetHeight / 2;
       } else d(c, p.linkActiveClass);

@@ -1,6 +1,4 @@
 /* ====================== post: TOC ====================== 2021.03.15 */
-
-// import _variables
 @use 'variables' as var;
 
 #toc {
@@ -91,18 +89,42 @@
 }
 
 // hover & active item
+
 // h2 titles
 #toc > ul > li > a:hover,
 #toc > ul > li > a.active{
   color: var.$main-color;
   background-color:rgba(177,177,177,.1);
 }
+#toc > ul > li > a.active > span {
+  position: absolute;
+  display: inline-block;
+  // transform: translateY(-50%);
+  transition: top .3s ease-in-out;
+  left: 7px;
+  width: 3px;
+  height: 1.5rem;
+  background-color: var.$main-color;
+}
+
+
 // h3 titles
 #toc > ul > li > ul > li > a:hover,
-#toc > ul > li > ul > li > a.active{
-  color: #d393d3;
+#toc > ul > li > ul > li > a.active {
+  color: var.$main-color;
   background-color:rgba(177,177,177,.1);
 }
 #toc > ul > li > ul > li > a.active {
   font-weight:600;
 }
+#toc > ul > li > ul > li > a.active > span {
+  position: absolute;
+  display: inline-block;
+  // transform: translateY(-50%);
+  transition: top .3s ease-in-out;
+  left: 7px;
+  width: 3px;
+  height: 1.5rem;
+  background-color: var.$main-color;
+}
+

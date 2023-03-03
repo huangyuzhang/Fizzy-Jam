@@ -1,232 +1,363 @@
-"use strict";
-var h =
-  "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-    ? function (e) {
-        return typeof e;
-      }
-    : function (e) {
-        return e &&
-          "function" == typeof Symbol &&
-          e.constructor === Symbol &&
-          e !== Symbol.prototype
-          ? "symbol"
-          : typeof e;
-      };
-!(function (e, t) {
-  "function" == typeof define && define.amd
-    ? define(function () {
-        return t;
-      })
-    : "object" === ("undefined" == typeof exports ? "undefined" : h(exports))
-    ? (module.exports = t)
-    : (e.fizzyToc = t);
-})(window, function (e) {
-  function f(e, t) {
-    return (
-      !!e.className && e.className.match(new RegExp("(\\s|^)" + t + "(\\s|$)"))
-    );
-  }
-  function d(e, t) {
-    if (f(e, t)) {
-      var n = new RegExp("(\\s|^)" + t + "(\\s|$)");
-      e.className = e.className.replace(n, " ");
-    }
-  }
-  function t(e) {
-    for (
-      var t,
-        n = void 0,
-        o = [],
-        l = {},
-        a = { id: -1 },
-        r = null,
-        i = void 0,
-        c = 0;
-      c < e.length;
-      c++
-    )
-      (i = "heading-" + c),
-        (l = {
-          name: e[c].innerText || e[c].textContent,
-          tagName: (n = e[c].tagName),
-          id: (e[c].id = i),
-          level: ((t = n), t ? t.slice(1) : 0),
-          parent: a,
-        }),
-        r &&
-          (u(l.tagName) < u(r.tagName) ? (l.parent = r) : (l.parent = s(l, r))),
-        (r = l),
-        o.push(l);
-    return o;
-  }
-  function s(e, t) {
-    for (var n = t.parent; n && u(e.tagName) >= u(n.tagName); ) n = n.parent;
-    return n || { id: -1 };
-  }
-  function u(e) {
-    var t = 0;
-    if (e)
-      switch (e.toLowerCase()) {
-        case "h1":
-          t = 6;
-          break;
-        case "h2":
-          t = 5;
-          break;
-        case "h3":
-          t = 4;
-          break;
-        case "h4":
-          t = 3;
-          break;
-        case "h5":
-          t = 2;
-          break;
-        case "h6":
-          t = 1;
-      }
-    return t;
-  }
-  function n(e, t, n) {
-    e &&
-      (e.attachEvent
-        ? ((e["e" + t + n] = n),
-          (e[t + n] = function () {
-            e["e" + t + n](window.event);
-          }),
-          e.attachEvent("on" + t, e[t + n]))
-        : e.addEventListener(t, n, !1));
-  }
-  // construct the ul element
-  function i(e, t) {
-    var n,
-      o,
-      l = void 0,
-      a = !1;
-    if (e) {
-      l = "<ul>";
-      for (var r = 0; r < e.length; r++)
-        (n = e[r].parent),
-          (o = t),
-          n &&
-            o &&
-            "object" === (void 0 === n ? "undefined" : h(n)) &&
-            "object" === (void 0 === o ? "undefined" : h(o)) &&
-            n.id === o.id &&
-            ((a = !0),
-            (l +=
-              '<li class="' + p.linkClass + " h" + e[r].level + '">'
-              + '<a data-target="' + e[r].id + '" title="' + e[r].name + '"><span></span>'
-              + e[r].name
-              + "</a>"
-              ),
-            (l += i(e, e[r])),
-            (l += "</li>"));
-      l += "</ul>";
-    }
-    return a ? l : "";
-  }
-  "function" != typeof Object.assign &&
-    Object.defineProperty(Object, "assign", {
-      value: function (e, t) {
-        if (null == e)
-          throw new TypeError("Cannot convert undefined or null to object");
-        for (var n = Object(e), o = 1; o < arguments.length; o++) {
-          var l = arguments[o];
-          if (null != l)
-            for (var a in l)
-              Object.prototype.hasOwnProperty.call(l, a) && (n[a] = l[a]);
-        }
-        return n;
-      },
-      writable: !0,
-      configurable: !0,
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(function () {
+      return factory;
     });
-  var p = Object.assign(
-      {},
-      {
-        linkClass: "toc-item",
-        linkActiveClass: "active",
-        supplyTop: 0,
-        selector: ["h1", "h2", "h3", "h4", "h5", "h6"],
-        active: null,
-      },
-      e
-    ),
-    o = (this.contentEl =
-      p.contentEl instanceof HTMLElement
-        ? p.contentEl
-        : document.getElementById(p.contentEl)),
-    v =
-      p.tocEl instanceof HTMLElement
-        ? p.tocEl
-        : document.getElementById(p.tocEl),
-    l = o.querySelectorAll(p.selector.join()),
-    a = t(l),
-    r = !1;
-  v.innerHTML = i(a, { id: -1 });
-  var c = "\n    .k-catelog-list > ul { position: relative; }    \n  ",
-    m = document.createElement("style");
-  function g(e) {
-    var t,
-      n = v.querySelectorAll("[data-target]");
-    (t = n), (n = Array.prototype.slice.call(t));
-    for (var o, l, a, r, i = null, c = void 0, s = 0; s < n.length; s++)
-      if (
-        ((c = n[s]),
-        (r = "target"),
-        ((a = c).dataset ? a.dataset[r] : a.getAttribute("data-" + r)) === e)
-      ) {
-        (o = c), (l = p.linkActiveClass), f(o, l) || (o.className += l);
-        var u = y((i = c), v);
-        v.scrollTop = u - v.offsetHeight / 2;
-      } else d(c, p.linkActiveClass);
-    "function" == typeof p.active && p.active.call(this, i);
+  } else if (typeof exports === 'object') {
+    module.exports = factory;
+  } else {
+    root.fizzyToc = factory;
   }
-  function y(e) {
-    for (
-      var t =
-          1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : null,
-        n = e.offsetTop;
-      (e = e.offsetParent) && t !== e;
+})(window, function (opts) {
 
-    )
-      n += e.offsetTop;
-    return n;
-  }
-  (m.type = "text/css"),
-    m.styleSheet ? (m.styleSheet.cssText = c) : (m.innerHTML = c),
-    document.getElementsByTagName("head")[0].appendChild(m),
-    n(v, "click", function (e) {
-      var t = (e.target || e.srcElement).getAttribute("data-target");
-      if (t) {
-        var n = document.getElementById(t);
-        r = !0;
-        var o = y(n);
-        window.scrollTo(0, o - p.supplyTop), g(t);
-      }
-    }),
-    n(window, "scroll", function (e) {
-      if (!r) {
-        for (
-          var t =
-              (document.documentElement.scrollTop || document.body.scrollTop) +
-              p.supplyTop,
-            n = null,
-            o = l.length - 1;
-          0 <= o;
-          o--
-        )
-          if (y(l[o]) <= t) {
-            n = l[o];
-            break;
+  let defaultOpts = {
+    linkClass: "toc-item",
+    linkActiveClass: "active",
+    supplyTop: 0,
+    selector: ["h1", "h2", "h3", "h4", "h5", "h6"],
+    active: null    // 激活时候回调
+  };
+
+
+  if (typeof Object.assign != 'function') {
+    // Must be writable: true, enumerable: false, configurable: true
+    Object.defineProperty(Object, "assign", {
+      value: function assign(target, varArgs) { // .length of function is 2
+        'use strict';
+        if (target == null) { // TypeError if undefined or null
+          throw new TypeError('Cannot convert undefined or null to object');
+        }
+
+        var to = Object(target);
+
+        for (var index = 1; index < arguments.length; index++) {
+          var nextSource = arguments[index];
+
+          if (nextSource != null) { // Skip over if undefined or null
+            for (var nextKey in nextSource) {
+              // Avoid bugs when hasOwnProperty is shadowed
+              if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
           }
-        g(n ? n.id : null);
-      }
-      r = !1;
-    }),
-    (this.rebuild = function () {
-      var e = t((l = o.querySelectorAll(p.selector.join())));
-      v.innerHTML = i(e, { id: -1 });
+        }
+        return to;
+      },
+      writable: true,
+      configurable: true
     });
+  }
+
+  /**
+   * 判断是否有class
+   * @param node  节点
+   * @param className 样式名
+   * @returns {*}
+   */
+  function hasClass(node, className) {
+    if (node.className) {
+      return node.className.match(
+        new RegExp('(\\s|^)' + className + '(\\s|$)'));
+    } else {
+      return false;
+    }
+  };
+
+  /**
+   *  添加样式
+   * @param node  节点
+   * @param className 样式名
+   */
+  function addClass(node, className) {
+    if (!hasClass(node, className)) node.className += " " + className;
+  };
+
+
+  /**
+   *  移除样式
+   * @param node  节点
+   * @param className 将移除的样式
+   */
+  function removeClass(node, className) {
+    if (hasClass(node, className)) {
+      var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+      node.className = node.className.replace(reg, ' ');
+    }
+  };
+
+  function arrayLikeToArray(al) {
+    return Array.prototype.slice.call(al);
+  }
+
+  /**
+   * 获取目录树
+   * @param catelogs
+   */
+  function getCatelogsTree(catelogs) {
+    let title, tagName,
+      tree = [], treeItem = {}, parentItem = { id: -1 }, lastTreeItem = null;
+
+    let id;
+
+    for (let i = 0; i < catelogs.length; i++) {
+      title = catelogs[i].innerText || catelogs[i].textContent;
+      tagName = catelogs[i].tagName;
+      id = 'heading-' + i;
+      catelogs[i].id = id;
+      treeItem = {
+        name: title,
+        tagName: tagName,
+        id: id,
+        level: getLevel(tagName),
+        parent: parentItem
+      };
+      if (lastTreeItem) {
+        if (getPriority(treeItem.tagName) < getPriority(lastTreeItem.tagName)) {
+          treeItem.parent = lastTreeItem;
+        } else {
+          treeItem.parent = findParent(treeItem, lastTreeItem);
+        }
+      }
+      lastTreeItem = treeItem;
+      tree.push(treeItem);
+    }
+    return tree;
+  }
+
+
+
+  /**
+   * 找到当前节点的父级
+   * @param currTreeItem
+   * @param lastTreeItem
+   * @returns {*|Window}
+   */
+  function findParent(currTreeItem, lastTreeItem) {
+    let lastTreeParent = lastTreeItem.parent;
+    while (lastTreeParent && (getPriority(currTreeItem.tagName) >= getPriority(lastTreeParent.tagName))) {
+      lastTreeParent = lastTreeParent.parent;
+    }
+    return lastTreeParent || { id: -1 };
+  }
+
+
+  /**
+   *  获取等级
+   * @param tagName
+   * @returns {*}
+   */
+  function getLevel(tagName) {
+    return tagName ? tagName.slice(1) : 0;
+  }
+
+  /**
+   *  获取权重
+   */
+  function getPriority(tagName) {
+    let priority = 0;
+    if (tagName) {
+      switch (tagName.toLowerCase()) {
+        case 'h1':
+          priority = 6;
+          break;
+        case 'h2':
+          priority = 5;
+          break;
+        case 'h3':
+          priority = 4;
+          break;
+        case 'h4':
+          priority = 3;
+          break;
+        case 'h5':
+          priority = 2;
+          break;
+        case 'h6':
+          priority = 1;
+          break;
+      }
+    }
+    return priority;
+  }
+
+  /**
+   * 绑定事件
+   * @param obj
+   * @param type
+   * @param fn
+   */
+  function addEvent(obj, type, fn) {
+    if (obj) {
+      if (obj.attachEvent) {
+        obj['e' + type + fn] = fn;
+        obj[type + fn] = function () {
+          obj['e' + type + fn](window.event);
+        };
+        obj.attachEvent('on' + type, obj[type + fn]);
+      } else {
+        obj.addEventListener(type, fn, false);
+      }
+    }
+  };
+
+  /**
+   * 生成树
+   * @param tree
+   */
+  function generateHtmlTree(tree, _parent) {
+    let ul, hasChild = false;
+    if (tree) {
+      ul = '<ul>';
+      for (let i = 0; i < tree.length; i++) {
+        if (isEqual(tree[i].parent, _parent)) {
+          hasChild = true;
+          ul += `<li class="${option.linkClass} h${tree[i].level}"><a data-target="${tree[i].id}" title="${tree[i].name}"><span></span>${tree[i].name}</a>`;
+          ul += generateHtmlTree(tree, tree[i]);
+          ul += '</li>';
+        }
+      }
+      ul += '</ul>'
+    }
+    return hasChild ? ul : '';
+  }
+
+  /**
+   * 获取dataset属性
+   * @param el
+   * @param id
+   * @returns {*}
+   */
+  function getDataset(el, id) {
+    if (el.dataset) {
+      return el.dataset[id];
+    } else {
+      return el.getAttribute(`data-${id}`)
+    }
+  }
+
+  function isEqual(node, node2) {
+    return node && node2 && typeof node === 'object' && typeof node2 === 'object' && node.id === node2.id
+  }
+
+  /**
+   * 获取滚动条滚动的高度
+   * @returns {number}
+   */
+  function getScrollTop() {
+    return document.documentElement.scrollTop || document.body.scrollTop;
+  }
+
+
+  const option = Object.assign({}, defaultOpts, opts);
+  const $content = this.contentEl =
+    option.contentEl instanceof HTMLElement ? option.contentEl : document.getElementById(option.contentEl);      // 内容元素
+  const $toc =
+    option.tocEl instanceof HTMLElement ? option.tocEl : document.getElementById(option.tocEl);     // 目录元素
+
+  let allCatelogs = $content.querySelectorAll(option.selector.join());
+
+  let tree = getCatelogsTree(allCatelogs);
+
+  let clickToScroll = false;      // 点击跳转不触发scroll事件
+
+  $toc.innerHTML = generateHtmlTree(tree, { id: -1 });
+
+  let styleText = `` // 页面中直接插入style
+  let styleNode = document.createElement('style');
+  styleNode.type = 'text/css';
+  if (styleNode.styleSheet) {
+    styleNode.styleSheet.cssText = styleText;
+  } else {
+    styleNode.innerHTML = styleText;
+  }
+  document.getElementsByTagName('head')[0].appendChild(styleNode);
+
+  addEvent($toc, 'click', function (e) {
+    const target = e.target || e.srcElement;
+    const id = target.getAttribute('data-target');
+    if (id) {
+      let headEl = document.getElementById(id);
+      clickToScroll = true;
+      const scrollTop = getElementTop(headEl)
+      window.scrollTo(0, scrollTop - option.supplyTop);
+      setActiveItem(id);
+    }
+  });
+
+  /**
+   *  设置选中的项
+   */
+  function setActiveItem(id) {
+    let catelogs = $toc.querySelectorAll('[data-target]');
+    catelogs = arrayLikeToArray(catelogs);
+    let activeTarget = null, c;
+
+    for (let i = 0; i < catelogs.length; i++) {
+      c = catelogs[i];
+      if (getDataset(c, 'target') === id) {
+
+        addClass(c, option.linkActiveClass)
+
+        activeTarget = c;
+
+        const top = getElementTop(c, $toc)
+        $toc.scrollTop = top - $toc.offsetHeight / 2
+        // c.scrollIntoView({
+        //   behavior: 'smooth'
+        // })
+
+      } else {
+        removeClass(c, option.linkActiveClass)
+      }
+    }
+    if (typeof option.active === 'function') {
+      option.active.call(this, activeTarget);
+    }
+  }
+
+  /**
+   * 滚动跟随处理事件
+   * @param e
+   */
+  function resolveScroll(e) {
+    // 鼠标滚动则触发，点击滚动不触发
+    if (!clickToScroll) {
+      let scrollTop = getScrollTop() + option.supplyTop;
+      let scrollToEl = null;
+      for (let i = allCatelogs.length - 1; i >= 0; i--) {
+        if (getElementTop(allCatelogs[i]) <= scrollTop) {
+          scrollToEl = allCatelogs[i];
+          break;
+        }
+      }
+      if (scrollToEl) setActiveItem(scrollToEl.id);
+      else setActiveItem(null);   // 无匹配的元素
+    }
+    clickToScroll = false;
+  }
+
+  /**
+   * 获取元素距离顶部的距离
+   * @param {*} el 
+   */
+  function getElementTop(el, by = null) {
+    let top = el.offsetTop;
+    while (el = el.offsetParent) {
+      if (by === el) {
+        break
+      }
+      top += el.offsetTop;
+    }
+    return top;
+  }
+
+  addEvent(window, 'scroll', resolveScroll);
+
+  // 重新构建目录，加入动态生成的内容
+  this.rebuild = function () {
+    allCatelogs = $content.querySelectorAll(option.selector.join());
+    let tree = getCatelogsTree(allCatelogs);
+    $toc.innerHTML = generateHtmlTree(tree, { id: -1 });
+  }
 });

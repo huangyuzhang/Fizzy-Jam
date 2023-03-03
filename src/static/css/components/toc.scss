@@ -99,8 +99,6 @@
 #toc > ul > li > a.active > span {
   position: absolute;
   display: inline-block;
-  // transform: translateY(-50%);
-  transition: top .3s ease-in-out;
   left: 7px;
   width: 3px;
   height: 1.5rem;
@@ -120,8 +118,6 @@
 #toc > ul > li > ul > li > a.active > span {
   position: absolute;
   display: inline-block;
-  // transform: translateY(-50%);
-  transition: top .3s ease-in-out;
   left: 7px;
   width: 3px;
   height: 1.5rem;

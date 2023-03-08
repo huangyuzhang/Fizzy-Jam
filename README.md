@@ -175,7 +175,10 @@ Add or remove items for the navbar or the footer area (coming soon!).
 * **Components**: author box, code line numbers ...
 
 ### Comment System
-TODO
+Powered by Giscus.
+
+1. Go to [giscus.app](https://giscus.app/) and follow the instruction, copy the JavaScript code block
+2. Go to  `src/pa_includes/layouts/section-main.njk`, replace line 27 ~ line 31
 
 ### Other Features
 1. Open external links in new pages.

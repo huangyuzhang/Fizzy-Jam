@@ -294,7 +294,7 @@ The priority of the list below is based on the number of requests.
 * [x] 404 Page
 * [x] Homepage Pagination
 * [ ] Homepage Showcase
-* [ ] Comment System
+* [x] Comment System (giscus)
 * [ ] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
 * [ ] Search
   * [Adding Search to your Eleventy Static Site with Lunr][search-lunr]

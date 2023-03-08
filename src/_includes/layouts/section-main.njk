@@ -1,6 +1,7 @@
 ---
 layout: default
 toc: false
+comment: false
 ---
 {# insert toc #}
 <section class="section is-mobile-paddingless">
@@ -16,3 +17,21 @@ toc: false
       </div>
     </div>
 </section>
+
+{# comment #}
+{% if comment %}
+<section class="section is-mobile-paddingless">
+    <div class="columns is-mobile" id="comment">
+        <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+        <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+            <script src="https://giscus.app/client.js"
+                    data-theme="light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column is-hidden-touch"></div>
+        </div>
+    </div>
+</section>
+{% endif %}

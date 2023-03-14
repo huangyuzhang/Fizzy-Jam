@@ -6,3 +6,26 @@
     </a>
   {% endfor %}
 {% endif %}
+
+{# search button#}
+<div class="navbar-item" id="search-btn">
+  <i class="iconfont icon-search"></i>
+</div>
+
+<div class="fizzy-search">
+    {# id: search container #}
+    <div class="field has-addons" style="display:none" id="search-container">
+        {# id: search-form #}
+        <form class="control has-icons-left" id="search-form" action="/search/">
+            <input id="search-input" class="input" placeholder="Search" name="q">
+            <span class="icon is-left">
+                <i class="iconfont icon-search"></i>
+            </span>
+        </form>
+        {# id: close-btn #}
+        <div class="control" id="close-btn">
+            <button type="submit" class="button" style="padding-left:calc(0.75em - 1px);padding-right:calc(0.75em - 1px);"><i class="iconfont icon-cross"></i></button>
+        </div>
+    </div>
+    <!-- <div id="search-results"></div> -->
+</div>

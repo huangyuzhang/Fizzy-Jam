@@ -4,6 +4,7 @@ const { DateTime } = require("luxon");
 const timeToRead = require("eleventy-plugin-time-to-read");
 const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 const htmlmin = require("html-minifier");
+const searchFilter = require("./src/filters/searchFilter");
 
 module.exports = function (eleventyConfig) {
   // Disable automatic use of your .gitignore
@@ -33,6 +34,13 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-MM-dd");
   });
 
+  // search
+  eleventyConfig.addFilter("search", searchFilter);
+
+  eleventyConfig.addCollection("post", collection => {
+    return [...collection.getFilteredByGlob("./src/collections/post/*.md")];
+  });
+
   // Syntax Highlighting for Code blocks
   // eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -60,6 +68,8 @@ module.exports = function (eleventyConfig) {
     "./src/static/fonts/*": "./static/fonts/",
     "./src/admin/config.yml": "./admin/config.yml",
     "./src/static/js/footer.js": "./static/js/footer.js",
+    "./src/static/js/search.js": "./static/js/search.js",
+    "./src/static/js/elasticlunr.min.js": "./static/js/elasticlunr.min.js",
   });
 
   // Katex Files (CSS use CDN)

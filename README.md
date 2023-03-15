@@ -210,6 +210,7 @@ Powered by Giscus.
    │  └─ 📂 tag
    │     ├─ 📜 *.md        # tag entries
    │     └─ 📜 tag.yaml    # default settings for all tags (layout, path, permalink, tags)
+   ├─ 📂 filters           # filters (search)
    ├─ 📂 static            # static files
    │  ├─ 📂 css
    │  ├─ 📂 fonts
@@ -267,6 +268,8 @@ Several JavaScript functions are introduced, so they can be used in templates.
   * Swiper Slider(TODO)
   * KaTex (LaTeX support)
   * Prism.js (Code Highlight)
+  * giscus (commenting)
+  * ElasticLunr (searching)
 
 ## Limitations & Known Issues
 
@@ -297,10 +300,8 @@ The priority of the list below is based on the number of requests.
 * [x] 404 Page
 * [x] Homepage Pagination
 * [ ] Homepage Showcase
+* [x] Search (ElasticLunr)
 * [x] Comment System (giscus)
-* [ ] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
-* [ ] Search
-  * [Adding Search to your Eleventy Static Site with Lunr][search-lunr]
 * [ ] i18n
   * [i18n by eleventy](https://www.11ty.dev/docs/plugins/i18n/)
 * [ ] Night Switch
@@ -328,4 +329,3 @@ The priority of the list below is based on the number of requests.
 [GitHub Discussions]:https://github.com/huangyuzhang/Fizzy-Jam/discussions
 [Telegram Channel]:https://t.me/FizzyJam
 [Telegram Group]:https://t.me/FizzyJamChat
-[search-lunr]:https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr

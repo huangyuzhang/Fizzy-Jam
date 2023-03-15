@@ -1,0 +1,65 @@
+---
+layout: default
+toc: false
+comment: false
+---
+<section class="section is-paddingless-bottom">
+  <div class="container">
+      <h1 class="title has-text-centered"><i class="iconfont icon-search"></i> <span id="search-title">{{ title }}</span><span id="searchWord"></span> </h1>
+      <div class="content has-text-centered post-content is-size-6-mobile">
+  </div>
+</section>
+
+<section class="section is-mobile-paddingless">
+    <div class="columns">
+        <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+        <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+        <div class="card">
+          <nav class="panel">
+            {# <p class="panel-heading">
+              <i class="iconfont icon-search"></i> {{ title }}
+            </p>  #}
+            <div class="panel-block">
+              <p class="control has-icons-left">
+                <input id="search-box" class="input is-info" type="text" placeholder="type and see results"> 
+                <span class="icon is-left">
+                  <i class="iconfont icon-search" aria-hidden="true"></i>
+                </span>
+              </p>
+            </div>
+
+            <div id="search-results"></div>
+            <div id="no-results-found" style="display: none" class="panel-block">
+                <span class="panel-icon"><i class="iconfont icon-cross" aria-hidden="true"></i></span>
+                No results found.
+            </div>
+            
+          </nav>
+        </div>
+      </div>
+      <div class="column is-hidden-touch"></div>
+    </div>
+</section>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+<script type="text/javascript" src="/static/js/search.js"></script>
+
+{# comment #}
+{% if comment %}
+<section class="section is-mobile-paddingless">
+    <div class="columns is-mobile" id="comment">
+        <div class="column is-hidden-touch is-1-desktop is-1-widescreen is-2-fullhd"></div>
+        <div class="column is-12-tablet is-10-desktop is-10-widescreen is-8-fullhd">
+            <script src="https://giscus.app/client.js"
+                    data-theme="light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column is-hidden-touch"></div>
+        </div>
+    </div>
+</section>
+{% endif %}
+

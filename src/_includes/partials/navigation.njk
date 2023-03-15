@@ -16,8 +16,8 @@
     {# id: search container #}
     <div class="field has-addons" style="display:none" id="search-container">
         {# id: search-form #}
-        <form class="control has-icons-left" id="search-form" action="/search/">
-            <input id="search-input" class="input" placeholder="Search" name="q">
+        <form id="search-form" class="control has-icons-left" action="/search/" method="get">
+            <input id="search-input" type="text" class="input" placeholder="Search" name="q">
             <span class="icon is-left">
                 <i class="iconfont icon-search"></i>
             </span>
@@ -27,5 +27,5 @@
             <button type="submit" class="button" style="padding-left:calc(0.75em - 1px);padding-right:calc(0.75em - 1px);"><i class="iconfont icon-cross"></i></button>
         </div>
     </div>
-    <!-- <div id="search-results"></div> -->
+    {# <div id="search-results"></div> #}
 </div>

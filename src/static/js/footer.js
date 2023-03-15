@@ -35,7 +35,7 @@ document.getElementById("search-btn").addEventListener("click", function(event) 
 document.getElementById("close-btn").addEventListener("click", function(event) {
   document.getElementById("search-btn").style.display = "";
   document.getElementById("search-container").style.display = "none";
-  document.getElementById("search-results").style.display = "none";
+  // document.getElementById("search-results").style.display = "none";
   // document.getElementById("search-input").value = ""; //clear search field text
   event.stopPropagation();
   });
@@ -48,7 +48,7 @@ document.getElementById("close-btn").addEventListener("click", function(event) {
     {
       container.style.display = "none";
       document.getElementById("search-btn").style.display = "";
-      document.getElementById("search-results").style.display = "none"; 
+      // document.getElementById("search-results").style.display = "none"; 
     }
   });
   
@@ -56,7 +56,7 @@ document.getElementById("close-btn").addEventListener("click", function(event) {
   window.addEventListener("scroll", function(){
     document.getElementById("search-btn").style.display = "";
     document.getElementById("search-container").style.display = "none";
-    document.getElementById("search-results").style.display = "none";
+    // document.getElementById("search-results").style.display = "none";
   });
   
   

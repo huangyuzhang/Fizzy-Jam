@@ -17,10 +17,10 @@
     {# title #}
     <title>
     {% if code %}{{code}}&nbsp;-&nbsp;{% endif %} {# error page #}
-    {% if seoTitle %}{{ seoTitle }} {# page's seoTile, e.g. topic page #}
-      {% elif title %}{{title}} {# file title, e.g. post.md,page.md > title #}
-      {% elif name %}{{ name }} {# file name, e.g. topic.md,author.md > name #}
-      {% elif settings.meta.name %}{{settings.meta.name}} {# setting > site name #}
+    {% if seoTitle and page.url != '/search/'%}{{ seoTitle }} {# page's seoTile, e.g. topic page #}
+      {% elif title and page.url != '/search/' %}{{title}} {# file title, e.g. post.md,page.md > title #}
+      {% elif name and page.url != '/search/'%}{{ name }} {# file name, e.g. topic.md,author.md > name #}
+      {% elif settings.meta.name and page.url != '/search/'%}{{settings.meta.name}} {# setting > site name #}
     {% endif %}
     {% if (page.url != '/' and page.url | substring(0,5) != '/page') and settings.seo.title %} - {{settings.seo.title}}{% endif %} {# append seo.title to pages except homepage #}
     </title>

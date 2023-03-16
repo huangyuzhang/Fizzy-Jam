@@ -336,6 +336,7 @@ collections:
             delete: false
             collapsed: true
             fields:
+              - { label: "Navbar Search", name: "navSearch", widget: "boolean", default: true, required: false }
               - { label: "Author Box", name: "authorBox", widget: "boolean", default: true, required: false }
               - { label: "Code Line Numbers", name: "codeLineNumbers", widget: "boolean", default: true, required: false }
               # - { label: "Link Hover Color", name: "linkHoverColor", widget: "string", default: "#FF7A7A", required: false }

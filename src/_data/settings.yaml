@@ -14,5 +14,6 @@ seo:
 #   mainColor: "#C668B9"
 #   linkHoverColor: "#C668B9"
 component:
+  navSearch: true
   authorBox: true
   codeLineNumbers: true

@@ -79,7 +79,7 @@
             el.appendChild(icon);
           
               const i = document.createElement("i");
-              i.classList.add("iconfont", "icon-link");
+              i.classList.add("iconfont", "icon-file");
               i.setAttribute("aria-hidden", "true");
               icon.appendChild(i);
           

@@ -1,12 +1,10 @@
-/* ====================== iconfont ====================== updated @ 2021.03.14 */
+/* ====================== iconfont ====================== updated @ 2023.03.16 */
+
 @font-face {
-  font-family: 'iconfont';  /* project id 1434549 */
-  src: url('//at.alicdn.com/t/font_1434549_c6uoweaftc.eot');
-  src: url('//at.alicdn.com/t/font_1434549_c6uoweaftc.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1434549_c6uoweaftc.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1434549_c6uoweaftc.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1434549_c6uoweaftc.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1434549_c6uoweaftc.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* Project id 1434549 */
+  src: url('//at.alicdn.com/t/c/font_1434549_dmekxc5w0eq.woff2?t=1678932400794') format('woff2'),
+       url('//at.alicdn.com/t/c/font_1434549_dmekxc5w0eq.woff?t=1678932400794') format('woff'),
+       url('//at.alicdn.com/t/c/font_1434549_dmekxc5w0eq.ttf?t=1678932400794') format('truetype');
 }
 
 .iconfont {
@@ -98,4 +96,8 @@
 
   .icon-at:before {
 	content: "\e613";
+  }
+
+  .icon-file:before {
+	content: "\e615";
   }

@@ -5,8 +5,13 @@ const timeToRead = require("eleventy-plugin-time-to-read");
 const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 const htmlmin = require("html-minifier");
 const searchFilter = require("./src/filters/searchFilter");
+const markdownItMark = require("markdown-it-mark");
 
 module.exports = function (eleventyConfig) {
+  
+  // support ==content== to <mark>content</mark>
+  eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItMark));
+
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);
 

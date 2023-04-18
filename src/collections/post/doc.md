@@ -104,6 +104,7 @@ Manually change site level settings.
 Add or remove items for the navbar or the footer area (coming soon!).
 
 #### Settings
+
 * **Site Meta**: Site Name, LOGO, ICON, description, footer info ...
 * **Post Listing**: showFeatureImage, featureText
 * **SEO Settings**: SEO title, Keywords
@@ -111,9 +112,11 @@ Add or remove items for the navbar or the footer area (coming soon!).
 * **Components**: author box, code line numbers ...
 
 ### Comment System
+
 TODO
 
 ### Other Features
+
 1. Open external links in new pages.
 2. Image Lazy Loading
 
@@ -165,6 +168,7 @@ There are 5 collections by default: `post`, `tag`, `author`, `page` and `setting
 `tag` and `author` are relation collection used in post collection. So you need to first add new tags and authors before selecting them while editing a post.
 
 #### Collection Slug
+
 Slugs are used in routes, URLs and treated as the "id"s of entries. 
 For example, the slug for a tag will be used in relation id stored in post files. It will be used also in generating the tag page: {% raw %}`/tag/{{slug}}`{%  endraw %}.
 
@@ -243,11 +247,10 @@ The priority of the list below is based on the number of requests.
 
 * [x] Minify Assets (HTML & CSS)
 * [x] 404 Page
-* [ ] Pagination
-* [ ] Comment System
-* [ ] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
-* [ ] Search
-  * [Adding Search to your Eleventy Static Site with Lunr](https://www.raymondcamden.com/2019/10/20/adding-search-to-your-eleventy-static-site-with-lunr)
+* [x] Pagination
+* [x] Comment System
+* [x] Markdown highlight to mark `==highlight==` → `<mark>highlight</mark>`
+* [x] Search
 * [ ] i18n
 * [ ] Night Switch
 * [ ] Markdown Footnotes

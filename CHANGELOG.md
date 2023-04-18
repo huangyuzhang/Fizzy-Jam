@@ -3,6 +3,7 @@
 ## untagged commits
 * fixed the issue of broken external links
 * improved link style
+* support marked content rendering: `==content==` → ==content==
 ## v0.2.0
 * added latex use case to post: theme style preview
 * added header/footer option to template:default, in order to hide header/footer sections on certain pages

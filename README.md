@@ -261,7 +261,7 @@ Several JavaScript functions are introduced, so they can be used in templates.
 
 ## Stacks
 
-* Eleventy v1.0.2 (static-site generator, Nunjucks as the template engine)
+* Eleventy v2.0.1 (static-site generator, Nunjucks as the template engine)
 * Bulma v0.9.4 (CSS Framework)
 * Netlify CMS v2.10.192 (git-based CMS)
 * Components

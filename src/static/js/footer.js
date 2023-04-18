@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 });
 
+// External link new tab | 2021.03.16
+function extLinks() {
+  for(var aTags = document.getElementsByTagName("a"), i = 0; i < aTags.length; i++) {
+    var aTag = aTags[i];
+    aTag.getAttribute("href") && 
+    aTag.hostname !== location.hostname && 
+    (aTag.target = "_blank") && 
+    aTag.classList.add("ext-link")
+  }
+};
+extLinks();
+
 // =========================================================
 // search 
 // =========================================================
@@ -58,16 +70,3 @@ document.getElementById("close-btn").addEventListener("click", function(event) {
     document.getElementById("search-container").style.display = "none";
     // document.getElementById("search-results").style.display = "none";
   });
-  
-  
-// External link new tab | 2021.03.16
-function extLinks() {
-  for(var aTags = document.getElementsByTagName("a"), i = 0; i < aTags.length; i++) {
-    var aTag = aTags[i];
-    aTag.getAttribute("href") && 
-    aTag.hostname !== location.hostname && 
-    (aTag.target = "_blank") && 
-    aTag.classList.add("ext-link")
-  }
-};
-extLinks();

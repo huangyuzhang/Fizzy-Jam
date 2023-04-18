@@ -54,14 +54,15 @@
 
 /* post-content 2019.04.13 */
 .post-wrap .post-content a {
-	color:var.$purple-dark;
+	color:var.$purple;
 	word-break: break-word;
 	white-space: nowrap;
 	border-bottom:1px dashed;
 	transition: all .25s;
+	font-weight: 600;
 }
 .post-wrap .post-content a:hover {
-	color:var.$link-color-hover;
+	color:var.$red;
 	border-bottom:1px solid;
 }
 .post-wrap .post-content a.ext-link:after {

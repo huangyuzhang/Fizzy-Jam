@@ -280,7 +280,11 @@
       let headEl = document.getElementById(id);
       clickToScroll = true;
       const scrollTop = getElementTop(headEl)
-      window.scrollTo(0, scrollTop - option.supplyTop);
+      // window.scrollTo(0, scrollTop - option.supplyTop);
+      window.scrollTo({
+        top: scrollTop - option.supplyTop, 
+        behavior: 'smooth'
+      });
       setActiveItem(id);
     }
   });

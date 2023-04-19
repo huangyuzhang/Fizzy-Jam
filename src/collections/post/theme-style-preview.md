@@ -144,6 +144,17 @@ will be rendered as:
 
 [An external link with title](https://github.com/huangyuzhang/ "Yes! I am the title.") (hover to see the title text)
 
+## Footnotes
+
+Here is a footnote reference,[^1] and another.[^longnote]
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+Subsequent paragraphs are indented to show that they
+belong to the previous footnote.
+
 ## Images
 
 ![Minion](/static/img/minion.png "This is a minion")

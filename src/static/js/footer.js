@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 });
 
-// External link new tab | 2021.03.16
+// =========================================================
+// External link new tab @ 2021.03.16
+// =========================================================
 function extLinks() {
   for(var aTags = document.getElementsByTagName("a"), i = 0; i < aTags.length; i++) {
     var aTag = aTags[i];
@@ -29,6 +31,26 @@ function extLinks() {
   }
 };
 extLinks();
+
+// =========================================================
+// Footnote scroll offset @ 2023.04.19
+// =========================================================
+const fn_offset = 104;
+
+// 监听所有带有#fn链接的点击事件
+document.querySelectorAll('a[href^="#fn"]').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // 阻止默认的跳转行为
+    var targetId = this.getAttribute('href').substring(1); // 获取目标元素的id
+    var targetElement = document.getElementById(targetId); // 获取目标元素
+    var targetOffset = targetElement.getBoundingClientRect().top + window.pageYOffset; // 计算目标元素距离页面顶部的距离
+    var offsetPosition = targetOffset - fn_offset; // 计算偏移后的位置
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth' // 平滑滚动
+    });
+  });
+});
 
 // =========================================================
 // search 

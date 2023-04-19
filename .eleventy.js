@@ -5,12 +5,23 @@ const timeToRead = require("eleventy-plugin-time-to-read");
 const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
 const htmlmin = require("html-minifier");
 const searchFilter = require("./src/filters/searchFilter");
+const markdownIt = require("markdown-it");
 const markdownItMark = require("markdown-it-mark");
+const markdownItFootnote = require("markdown-it-footnote");
 
 module.exports = function (eleventyConfig) {
-  
+
+  // overwrite markdown-it options
+  let options = {
+    html: true,
+    breaks: true
+  };
+  eleventyConfig.setLibrary("md", markdownIt(options));
+
   // support ==content== to <mark>content</mark>
   eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItMark));
+
+  eleventyConfig.amendLibrary("md", mdLib => mdLib.use(markdownItFootnote));
 
   // Disable automatic use of your .gitignore
   eleventyConfig.setUseGitIgnore(false);

@@ -263,7 +263,7 @@ Several JavaScript functions are introduced, so they can be used in templates.
 
 * Eleventy v2.0.1 (static-site generator, Nunjucks as the template engine)
 * Bulma v0.9.4 (CSS Framework)
-* Netlify CMS v2.10.192 (git-based CMS)
+* Decap CMS v2.10.192 (git-based CMS, formerly known as Netlify CMS)
 * Components
   * Swiper Slider(TODO)
   * KaTex (LaTeX support)
@@ -279,6 +279,7 @@ Several JavaScript functions are introduced, so they can be used in templates.
 * Delete tags(collection item) or change tag slugs will not remove the corresponding tag items in post files(.md).
   > Removed tags are not displaying in front-end, so users won't see those tags.
   > However, still recommend not to change the tag slugs after creation.
+* Due to the old version of Slate, the markdown editor of CMS does not support Chinese, Korean or Japanese. But we can expect a fix in the near future as the CMS is handed over to a new set of developers.
 
 ## 📝 Changelog
 
@@ -302,14 +303,14 @@ The priority of the list below is based on the number of requests.
 * [ ] Homepage Showcase
 * [x] Search (ElasticLunr)
 * [x] Comment System (giscus)
+* [x] Markdown Footnotes
 * [ ] i18n
   * [i18n by eleventy](https://www.11ty.dev/docs/plugins/i18n/)
 * [ ] Night Switch
-* [ ] Markdown Footnotes
 
 ## Resources
 
-* [Netlify CMS Docs](https://www.netlifycms.org/docs/)
+* [Decap CMS Docs](https://decapcms.org/docs)
 * [Eleventy Docs](https://www.11ty.dev/docs/)
 * [Nunjucks Templating Docs](https://mozilla.github.io/nunjucks/templating.html)
 * [Nunjucks VSCode Plugin](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)

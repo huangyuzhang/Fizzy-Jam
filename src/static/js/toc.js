@@ -132,7 +132,7 @@
         tagName: "h2",
         id: "comments",
         level: 2,
-        parent: tree[0].parent
+        parent: tree[tree.length - 1].parent
       });
     };
 

@@ -442,7 +442,7 @@ table tr td:last-child {border-right: solid 1px #dbdbdb;}
 }
 .post-content tbody tr:nth-child(even){background-color: #f9f9f9;}
 .post-content table tr:hover{
-	background-color:rgba(66, 165, 245, 0.15);
+	background-color:var.$purple-lighter;
 }
 .post-content table td:first-child {
     background-size: 20px 100%;

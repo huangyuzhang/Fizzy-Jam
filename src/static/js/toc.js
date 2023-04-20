@@ -14,6 +14,8 @@
     linkClass: "toc-item",
     linkActiveClass: "active",
     supplyTop: 0,
+    comments: false,
+    commentsText: "Comments",
     selector: ["h1", "h2", "h3", "h4", "h5", "h6"],
     active: null    // 激活时候回调
   };
@@ -121,7 +123,19 @@
       }
       lastTreeItem = treeItem;
       tree.push(treeItem);
-    }
+    };
+
+    // if comments: true then show comments in TOC
+    if (option.comments) {
+      tree.push({
+        name: option.commentsText ? option.commentsText : "Comments",
+        tagName: "h2",
+        id: "comments",
+        level: 2,
+        parent: tree[tree.length - 1].parent
+      });
+    };
+
     return tree;
   }
 
@@ -219,6 +233,7 @@
       }
       ul += '</ul>'
     }
+    // !_parent ? ul += '<li><a data-target="comments" title="comments">Comments</a></li>' : ''
     return hasChild ? ul : '';
   }
 

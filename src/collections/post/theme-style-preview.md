@@ -33,13 +33,13 @@ Bring to the table win-win survival strategies to ensure proactive domination. A
 
 ## Emphasis
 
-**This is bold text**
+`**This is bold text**` → **This is bold text**
 
-*This is italic text*
+`*This is italic text*` → *This is italic text*
 
-~~Strikethrough~~
+`~~Strikethrough~~` → ~~Strikethrough~~
 
-\==highlight==
+`==highlight==` → ==highlight==
 
 ## Blockquotes
 
@@ -121,16 +121,6 @@ Use `$` and `$$` mark to define Latex equations:
 * `$ e = mc $` will be rendered as: $ e = mc $
 * `$$ c = \\pm\\sqrt{a^2 + b^2} $$` will be rendered as: $$ c = \\pm\\sqrt{a^2 + b^2} $$
 
-## Marked content
-
-```markdown
-==this is content==
-```
-
-will be rendered as:
-
-==this is content==
-
 ## Tables
 
 | Option | Description                                                               |
@@ -138,6 +128,7 @@ will be rendered as:
 | data   | path to data files to supply the data that will be passed into templates. |
 | engine | engine to be used for processing templates. Handlebars is the default.    |
 | ext    | extension to be used for dest files.                                      |
+| engine | engine to be used for processing templates. Handlebars is the default.    |
 
 ## Links
 

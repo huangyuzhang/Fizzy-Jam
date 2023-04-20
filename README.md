@@ -175,11 +175,15 @@ Add or remove items for the navbar or the footer area (coming soon!).
 * **Components**: author box, code line numbers ...
 
 ### Comment System
-Powered by Giscus.
+
+Powered by Giscus, follow these two steps to config your own comments:
 
 1. Go to [giscus.app](https://giscus.app/) and follow the instruction, copy the JavaScript code block
-2. Go to  `src/pa_includes/layouts/section-main.njk`, replace line 27 ~ line 31
+2. Go to  `src/_includes/layouts/section-main.njk`, replace line 27 ~ line 31
 
+By default, the comments are enabled for all posts and disabled for pages. You can define `comments: true/false` to frontmatter to customize it.
+
+You can also modify the default text of "Comments" in the TOC by modifying `commentsText: "Comments"` on line 82 of `src/_includes/layouts/default.njk`. For example, `commentsText: "Responses"` or `commentsText: "评论"`.
 ### Other Features
 1. Open external links in new pages.
 2. Image Lazy Loading

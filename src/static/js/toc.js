@@ -125,14 +125,13 @@
       tree.push(treeItem);
     };
 
-    // if comments: true then show comments in TOC
     if (option.comments) {
       tree.push({
         name: option.commentsText ? option.commentsText : "Comments",
         tagName: "h2",
         id: "comments",
         level: 2,
-        parent: tree[tree.length - 1].parent
+        parent: tree[0].parent
       });
     };
 

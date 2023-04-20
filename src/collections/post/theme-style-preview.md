@@ -130,6 +130,7 @@ Use `$` and `$$` mark to define Latex equations:
 will be rendered as:
 
 ==this is content==
+
 ## Tables
 
 | Option | Description                                                               |
@@ -146,14 +147,13 @@ will be rendered as:
 
 ## Footnotes
 
-Here is a footnote reference,[^1] and another.[^longnote]
+Here is a footnote reference [^1], and another [^longnote].
 
 [^1]: Here is the footnote.
 
 [^longnote]: Here's one with multiple blocks.
-
-Subsequent paragraphs are indented to show that they
-belong to the previous footnote.
+  Subsequent paragraphs are indented to show that they
+  belong to the previous footnote.
 
 ## Images
 

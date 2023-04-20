@@ -179,6 +179,28 @@ center {
 	margin-bottom: 1rem;
 }
 
+// footnote highlight
+.highlight {
+	animation: blink .5s linear 1;
+}
+@keyframes blink {
+	0% {
+		background-color: transparent;
+	}
+	25% {
+		background-color: var.$yellow-light;
+	}
+	50% {
+	  background-color: transparent;
+	}
+	75% {
+	  background-color: var.$yellow-light;
+	}
+	100% {
+	  background-color: transparent;
+	}
+  }
+
 // Overwrite Prismjs
 pre[class*="language-"].line-numbers {
 	padding-left: 2.8em !important;

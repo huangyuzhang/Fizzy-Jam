@@ -49,6 +49,14 @@ document.querySelectorAll('a[href^="#fn"]').forEach(function(link) {
       top: offsetPosition,
       behavior: 'smooth' // 平滑滚动
     });
+    // 高亮显示脚注文本
+    setTimeout(function() {
+      // var fnText = targetElement.parentElement;
+      targetElement.classList.add('highlight');
+      setTimeout(function() {
+        targetElement.classList.remove('highlight');
+      }, 3000);
+    }, 500);
   });
 });
 

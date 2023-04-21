@@ -16,7 +16,13 @@
     supplyTop: 0,
     comments: false,
     commentsText: "Comments",
-    selector: ["h1", "h2", "h3", "h4", "h5", "h6"],
+    selector: [
+      "h1:not(blockquote h1)", 
+      "h2:not(blockquote h2)", 
+      "h3:not(blockquote h3)", 
+      "h4:not(blockquote h4)", 
+      "h5:not(blockquote h5)", 
+      "h6:not(blockquote h6)"],
     active: null    // 激活时候回调
   };
 

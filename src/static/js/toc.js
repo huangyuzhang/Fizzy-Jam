@@ -12,7 +12,7 @@
 
   let defaultOpts = {
     linkClass: "toc-item",
-    linkActiveClass: "active",
+    linkActiveClass: "current",
     supplyTop: 0,
     comments: false,
     commentsText: "Comments",

@@ -92,11 +92,11 @@
 
 // h2 titles
 #toc > ul > li > a:hover,
-#toc > ul > li > a.active{
+#toc > ul > li > a.current{
   color: var.$main-color;
   background-color:rgba(177,177,177,.1);
 }
-#toc > ul > li > a.active > span {
+#toc > ul > li > a.current > span {
   position: absolute;
   display: inline-block;
   left: 7px;
@@ -108,14 +108,14 @@
 
 // h3 titles
 #toc > ul > li > ul > li > a:hover,
-#toc > ul > li > ul > li > a.active {
+#toc > ul > li > ul > li > a.current {
   color: var.$main-color;
   background-color:rgba(177,177,177,.1);
 }
-#toc > ul > li > ul > li > a.active {
+#toc > ul > li > ul > li > a.current {
   font-weight:600;
 }
-#toc > ul > li > ul > li > a.active > span {
+#toc > ul > li > ul > li > a.current > span {
   position: absolute;
   display: inline-block;
   left: 7px;

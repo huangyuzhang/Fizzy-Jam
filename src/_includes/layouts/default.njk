@@ -6,7 +6,11 @@
 }
 ---
 <!DOCTYPE html>
+{% if header != false %}
 <html lang="en" class="has-spaced-navbar-fixed-top">
+{% else %}
+<html lang="en">
+{% endif %}
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
